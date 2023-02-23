@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const alphabet = 'ABCDEFGHIJKLOPQRSTUVWXYZ'
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 
     $("#btn-chiffrer").click(function () {
@@ -48,3 +48,25 @@ $(document).ready(function () {
         $("#txt-result").text(msg_chiffre);
     }
 });
+
+
+
+function chiffrement_afine() {
+
+};
+
+function chiffrement_playfair(){
+    
+};
+
+function chiffrement_vigenere(){
+    
+};
+
+function chiffrement_scytale(){
+    
+};
+
+function chiffrement_hill(){
+    
+};
