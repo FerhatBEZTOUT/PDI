@@ -1,0 +1,65 @@
+body {
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    display:flex;
+    min-height:100vh;
+    flex-direction: column;
+}
+.logo>img {
+    opacity:0.8;
+}
+.logo>img:hover {
+    opacity: 1 ;
+}
+
+
+.titre {
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    color: rgb(77, 165, 219);
+}
+
+.navbar{
+    background-color: rgb(225, 232, 239) !important;
+}
+
+
+.navbar-nav>a {
+    font-weight: bold;
+
+}
+.navbar-nav>a:hover {
+    color: rgb(17, 121, 218);
+}
+
+
+#lienUniv {
+    color: white;
+}
+footer {
+    background-color: rgb(58, 151, 238);
+    color:white;
+    margin-top: auto;    
+}
+
+
+li {
+    font-size: large;
+}
+
+
+.error {
+    color : red;
+}
+
+.mon-bg {
+    background-color: rgb(225, 232, 239) !important;
+}
+
+
+
+
+html{
+    overflow-x: hidden;
+}
+
+
