@@ -6,7 +6,7 @@
     <div class="row col-12 col-md-6 ">
         <select class="form-control mb-2" name="" id="chiffrement">
                 <option value="0" selected>Séléctionner un chiffrement</option>
-                <option value="cesar">César</option>
+                <option value="cesar" >César</option>
                 <option value="scytale">Scytale</option>
                 <option value="vigenere">Vigénere</option>
                 <option value="afine">Afine</option>
