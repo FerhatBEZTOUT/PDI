@@ -37,7 +37,7 @@ $(document).ready(function () {
             // L : Position de la lettre
             L = alphabet.indexOf(texte_en_clair[i])
 
-            // C : Nouvelle position de la lettre 
+            // C : Nouvelle position de la lettre
             C = (L + K) % 26;
 
             msg_chiffre += alphabet[C];
