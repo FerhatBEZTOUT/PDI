@@ -36,13 +36,13 @@
     <div class="row">
         <!-- Zone de texte à chiffrer -->
         <div class="container col-12 col-md-6 mb-3">
-            <h6 class="text-center">Texte chiffré</h6>
+            <h6 class="text-center">Texte en clair</h6>
             <textarea class="form-control" name="txt-chiffrement" id="txt-chiffrement" cols="30" rows="10"></textarea>
         </div>
         <!-- Zone de texte à déchiffrer -->
         <div class="container col-12 col-md-6 mb-3">
-            <h6 class="text-center">Texte en clair</h6>
-            <textarea class="form-control" name="txt-result" id="txt-result" cols="30" rows="10"></textarea>
+            <h6 class="text-center">Texte chiffré</h6>
+            <textarea class="form-control" name="txt-dechiffrement" id="txt-dechiffrement" cols="30" rows="10"></textarea>
         </div>
     </div>
     
@@ -52,11 +52,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5" id="exampleModalToggleLabel">Erreur</h2>
+        <h2 class="modal-title fs-5" id="exampleModalToggleLabel"> <!-- titre d'erreur ici avec JS --> </h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Show a second modal and hide this one with the button below.
+        <!-- Msg d'erreur ici avec JS -->
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Fermer</button>

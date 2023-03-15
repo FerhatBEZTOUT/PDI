@@ -37,14 +37,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menuNav" href="chiffrer.php">Chiffrer</a>
+                        <a class="nav-link menuNav" href="chiffrer.php">Chiffrer & Déchiffrer</a>
 
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link menuNav" href="dechiffrer.php">Déchiffrer</a>
-
-                    </li>
+                    
 
                     <li class="nav-item">
                         <a class="nav-link menuNav" href="decrypter.php">Décrypter</a>

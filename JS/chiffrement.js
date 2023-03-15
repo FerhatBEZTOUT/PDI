@@ -1,8 +1,13 @@
 $(document).ready(function () {
+ /* START OF SCRIPT */
+
+
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     $("#chiffrement").change(function (e) {
         select_val = $("#chiffrement").val();
+
+        reset_input_cle();
 
         switch (select_val) {
             case 'cesar': input_cle_cesar();
@@ -37,7 +42,33 @@ $(document).ready(function () {
         }
     });
 
+
+
+    $("#btn-dechiffrer").click(function () {
+        // Récupérer le texte , supprimer les espaces et le mettre en majuscule
+        texte_chiffre = $("#txt-dechiffrement").val().toUpperCase().split(" ").join("").trim();
+
+        // Variable pour sauvegarder le msg chiffré
+        msg_en_clair = '';
+
+        // Récupérer le type de chiffrement
+        val = $("#chiffrement").val();
+
+        switch (val) {
+            case 'cesar': dechiffrement_cesar();
+            case 'afine': dechiffrement_afine();
+            case 'playfair': dechiffrement_playfair();
+            case 'vigenere': dechiffrement_vigenere();
+            case 'scytale': dechiffrement_scytale();
+            case 'hill': dechiffrement_hill();
+        }
+    });
+
+
     /* ------------ Fonctions pour le changement du bloc de la clé selon le chiffrement ------------*/
+    function reset_input_cle() {
+        $("#cle").html("");
+    }
 
     function input_cle_cesar() {
 
@@ -52,9 +83,9 @@ $(document).ready(function () {
 
         $('#cle-cesar > li').click(function () {
             $('#cle-cesar > li[selected-key]').removeAttr('selected-key');
-            
+
             const clickedItemIndex = $(this).index();
-            console.log(clickedItemIndex);
+
             $('#cle-cesar > li').eq(clickedItemIndex).attr('selected-key', '');
         });
 
@@ -88,7 +119,7 @@ $(document).ready(function () {
     function chiffrement_cesar() {
         // Récupérer clé cesar
         K = $('#cle-cesar > li[selected-key]').text();
-        console.log(K);
+
         if (K == '') K = 0;
         else {
             K = parseInt(K);
@@ -114,55 +145,105 @@ $(document).ready(function () {
         }
 
         // Affichage du texte dans un text-area
-        $("#txt-result").text(msg_chiffre);
+        $("#txt-dechiffrement").val(msg_chiffre);
     }
+
+
+
+    function chiffrement_afine() {
+
+    };
+
+    function chiffrement_playfair() {
+
+    };
+
+    function chiffrement_vigenere() {
+
+    };
+
+    function chiffrement_scytale() {
+
+    };
+
+    function chiffrement_hill() {
+
+    };
+
+
+
+    /* ------------ Fonctions de déchiffrements ------------*/
+
+    function dechiffrement_cesar() {
+        // Récupérer clé cesar
+        K = $('#cle-cesar > li[selected-key]').text();
+
+        if (K == '') K = 0;
+        else {
+            K = parseInt(K);
+
+        }
+        // Vérifier que la clé est correcte
+        if (K > 25 || K < 0) {
+            $("#exampleModalToggleLabel").text("Erreur de dechiffrement");
+            $(".modal-body").text("Clé érronée (La clé doit être entre 0 et 25)");
+            $("#exampleModalToggle").modal('toggle');
+        }
+
+        // Parcours du msg à chiffrer
+        for (i = 0; i < texte_chiffre.length; i++) {
+            // L : Position de la lettre
+            
+            C = alphabet.indexOf(texte_chiffre[i])
+
+            // C : Nouvelle position de la lettre
+            L = (C - K) % 26;
+            if (L < 0) {
+                L = L + 26;
+            }
+            console.log(alphabet[L]);
+            msg_en_clair += alphabet[L];
+
+        }
+
+        // Affichage du texte dans un text-area
+        
+        $("#txt-chiffrement").val(msg_en_clair);
+    };
+
+    function dechiffrement_afine() {
+
+    };
+
+    function dechiffrement_playfair() {
+
+    };
+
+    function dechiffrement_vigenere() {
+
+    };
+
+    function dechiffrement_scytale() {
+
+    };
+
+    function dechiffrement_hill() {
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+    /* END OF SCRIPT */  
 });
 
 
 
-function chiffrement_afine() {
-
-};
-
-function chiffrement_playfair() {
-
-};
-
-function chiffrement_vigenere() {
-
-};
-
-function chiffrement_scytale() {
-
-};
-
-function chiffrement_hill() {
-
-};
-
-
-/* ------------ Fonctions de déchiffrements ------------*/
-
-function dechiffrement_afine() {
-
-};
-
-function dechiffrement_afine() {
-
-};
-
-function dechiffrement_playfair() {
-
-};
-
-function dechiffrement_vigenere() {
-
-};
-
-function dechiffrement_scytale() {
-
-};
-
-function dechiffrement_hill() {
-
-};
