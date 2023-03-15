@@ -148,6 +148,11 @@ $(document).ready(function () {
     }
 
     function input_cle_vigenere() {
+        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle += '<input type="text" class="form-control" id="cle-vigenere">';
+        
+        
+        $("#cle").html(block_cle);
 
     }
 
@@ -241,6 +246,38 @@ $(document).ready(function () {
 
     function chiffrement_vigenere() {
 
+        // Récupérer la clé (texte)
+        K_txt = $("#cle-vigenere").val().toUpperCase().split(" ").join("").trim();
+    
+        longueur_txt = K_txt.length;
+
+        // Transformer en valeurs numériques
+        K = []
+        for (i=0;i<longueur_txt;i++) {
+            K.push(alphabet.indexOf(K_txt[i]));
+            console.log(K[i]);
+        }
+        
+        // Parcours du msg à chiffrer
+        i = 0
+       
+        while ( i < texte_en_clair.length) {
+            // L : Position de la lettre en clar
+            L = alphabet.indexOf(texte_en_clair[i])
+
+            // Recuperer valeur une lettre de la clé
+            K_ieme = K[i % longueur_txt]
+            
+            // C : Nouvelle position de la lettre chiffrée
+            C = (K_ieme + L) % 26;
+
+            msg_chiffre += alphabet[C];
+
+            i++;
+        }
+
+        // Affichage du texte dans un text-area
+        $("#txt-dechiffrement").val(msg_chiffre);
     };
 
     function chiffrement_scytale() {
