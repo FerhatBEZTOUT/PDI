@@ -9,7 +9,7 @@
                 <option value="cesar" >César</option>
                 <option value="scytale">Scytale</option>
                 <option value="vigenere">Vigénere</option>
-                <option value="afine">Afine</option>
+                <option value="affine">Affine</option>
                 <option value="playfair">Playfair</option>
                 <option value="hill">Hill</option>
         </select>
