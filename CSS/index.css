@@ -63,7 +63,7 @@ html{
 }
 
 
-#cle-cesar > li {
+.cle-number > li {
     width:25px;
     height: 30px;
     background-color: rgb(52, 48, 48);
@@ -76,8 +76,22 @@ html{
     cursor: pointer;
 }
 
-#cle-cesar > li[selected-key] {
+.cle-number > li[selected-key] {
     background-color: rgb(255, 255, 255);
     color: rgb(69, 118, 192);
     border : 1px solid rgb(52, 48, 48);
+}
+
+
+.question-cle {
+    text-decoration: none;
+    color: grey;
+    font-size: medium;
+}
+
+
+.question-cle:hover {
+    text-decoration: none;
+    color: rgb(43, 90, 199);
+    font-size: medium;
 }

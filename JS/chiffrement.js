@@ -3,6 +3,7 @@ $(document).ready(function () {
 
 
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const affine_A_values = [1,3,5,7,9,11,15,17,19,21,23,25];
 
     $("#chiffrement").change(function (e) {
         select_val = $("#chiffrement").val();
@@ -10,12 +11,12 @@ $(document).ready(function () {
         reset_input_cle();
 
         switch (select_val) {
-            case 'cesar': input_cle_cesar();
-            case 'afine': input_cle_afine();
-            case 'playfair': input_cle_playfair();
-            case 'vigenere': input_cle_vigenere();
-            case 'scytale': input_cle_scytale();
-            case 'hill': input_cle_hill();
+            case 'cesar': input_cle_cesar(); break;
+            case 'afine': input_cle_afine(); break;
+            case 'playfair': input_cle_playfair(); break;
+            case 'vigenere': input_cle_vigenere(); break;
+            case 'scytale': input_cle_scytale(); break;
+            case 'hill': input_cle_hill(); break;
         }
 
     });
@@ -33,12 +34,12 @@ $(document).ready(function () {
         val = $("#chiffrement").val();
 
         switch (val) {
-            case 'cesar': chiffrement_cesar();
-            case 'afine': chiffrement_afine();
-            case 'playfair': chiffrement_playfair();
-            case 'vigenere': chiffrement_vigenere();
-            case 'scytale': chiffrement_scytale();
-            case 'hill': chiffrement_hill();
+            case 'cesar': chiffrement_cesar(); break; 
+            case 'afine': chiffrement_afine(); break;
+            case 'playfair': chiffrement_playfair(); break;
+            case 'vigenere': chiffrement_vigenere(); break;
+            case 'scytale': chiffrement_scytale(); break;
+            case 'hill': chiffrement_hill(); break;
         }
     });
 
@@ -71,9 +72,9 @@ $(document).ready(function () {
     }
 
     function input_cle_cesar() {
-
-        block_cle = '<h5 class="text-center">Choisir une clé</h5>';
-        block_cle += '<ul id="cle-cesar">';
+        
+        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle += '<ul class="cle-number" id="cle-cesar">';
         for (i = 0; i < 26; i++) {
             block_cle += '<li>' + i + '</li>';
         }
@@ -93,7 +94,42 @@ $(document).ready(function () {
 
 
     function input_cle_afine() {
+        
+        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a class="question-cle" href="#"> Plus d\'infos</a></h5>';
+        
+        block_cle += '<h4>A</h4>';
+        block_cle += '<ul class="cle-number" id="cle-afine-a">';
 
+        for (i = 0; i<affine_A_values.length; i++) {
+            block_cle += '<li>' + affine_A_values[i] + '</li>';
+        }
+        block_cle += '</ul>';
+
+        block_cle += '<h4>B</h4>';
+        block_cle += '<ul class="cle-number" id="cle-afine-b">';
+
+        for (i = 0; i<26; i++) {
+            block_cle += '<li>' + i + '</li>';
+        }
+        block_cle += '</ul>';
+
+        $("#cle").html(block_cle);
+
+        $('#cle-afine-a > li').click(function () {
+            $('#cle-afine-a > li[selected-key]').removeAttr('selected-key');
+
+            const clickedItemIndex = $(this).index();
+
+            $('#cle-afine-a > li').eq(clickedItemIndex).attr('selected-key', '');
+        });
+
+        $('#cle-afine-b > li').click(function () {
+            $('#cle-afine-b > li[selected-key]').removeAttr('selected-key');
+
+            const clickedItemIndex = $(this).index();
+
+            $('#cle-afine-b > li').eq(clickedItemIndex).attr('selected-key', '');
+        });
     }
 
     function input_cle_playfair() {
