@@ -191,17 +191,33 @@ $(document).ready(function () {
     
        
     function input_cle_playfair() {
-        block_cle = '<h5 class="text-center">Entrez des 25 clés K(W est inutile dans francais) <a class="question-cle" href="#">Plus d\'infos</a></h5>';
-        block_cle += '<tr>';
-        block_cle += '<td> <textarea name="txt-cles" id="txt-cles" cols="30" rows="1">BYDGZJSFUPLARKXCOIVEQNMHT</textarea> </td>';
-        block_cle +=' <td>';
+        // block_cle = '<h5 class="text-center">Entrez des 25 clés K(W est inutile dans francais) <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        // block_cle += '<tr>';
+        // block_cle += '<td> <textarea name="txt-cles" id="txt-cles" cols="30" rows="1">BYDGZJSFUPLARKXCOIVEQNMHT</textarea> </td>';
+        // block_cle +=' <td>';
+        // block_cle +='<input type="TEXT" name="m11" size="1"><input type="TEXT" name="m12" size="1"><input type="TEXT" name="m13" size="1"><input type="TEXT" name="m14" size="1"><input type="TEXT" name="m15" size="1"><br>';
+        // block_cle +='<input type="TEXT" name="m21" size="1"><input type="TEXT" name="m22" size="1"><input type="TEXT" name="m23" size="1"><input type="TEXT" name="m24" size="1"><input type="TEXT" name="m25" size="1"><br>';
+        // block_cle +='<input type="TEXT" name="m31" size="1"><input type="TEXT" name="m32" size="1"><input type="TEXT" name="m33" size="1"><input type="TEXT" name="m34" size="1"><input type="TEXT" name="m35" size="1"><br>';
+        // block_cle +='<input type="TEXT" name="m41" size="1"><input type="TEXT" name="m42" size="1"><input type="TEXT" name="m43" size="1"><input type="TEXT" name="m44" size="1"><input type="TEXT" name="m45" size="1"><br>';
+        // block_cle +='<input type="TEXT" name="m51" size="1"><input type="TEXT" name="m52" size="1"><input type="TEXT" name="m53" size="1"><input type="TEXT" name="m54" size="1"><input type="TEXT" name="m55" size="1"><br>';
+        // block_cle +='Grille</td>';
+        // block_cle += '</tr >';
+
+        block_cle ='<tr>';
+        block_cle +='<td bgcolor="#08FF7C">Message clair</td>';
+        block_cle +='<td bgcolor="#08FF7C"><textarea name="clair" rows="6" cols="30" wrap="virtual">CHIFFRE DE PLAYFAIR</textarea></td>';
+        block_cle +='<td  bgcolor="#FFCCCC" align="CENTER">';
         block_cle +='<input type="TEXT" name="m11" size="1"><input type="TEXT" name="m12" size="1"><input type="TEXT" name="m13" size="1"><input type="TEXT" name="m14" size="1"><input type="TEXT" name="m15" size="1"><br>';
         block_cle +='<input type="TEXT" name="m21" size="1"><input type="TEXT" name="m22" size="1"><input type="TEXT" name="m23" size="1"><input type="TEXT" name="m24" size="1"><input type="TEXT" name="m25" size="1"><br>';
         block_cle +='<input type="TEXT" name="m31" size="1"><input type="TEXT" name="m32" size="1"><input type="TEXT" name="m33" size="1"><input type="TEXT" name="m34" size="1"><input type="TEXT" name="m35" size="1"><br>';
         block_cle +='<input type="TEXT" name="m41" size="1"><input type="TEXT" name="m42" size="1"><input type="TEXT" name="m43" size="1"><input type="TEXT" name="m44" size="1"><input type="TEXT" name="m45" size="1"><br>';
         block_cle +='<input type="TEXT" name="m51" size="1"><input type="TEXT" name="m52" size="1"><input type="TEXT" name="m53" size="1"><input type="TEXT" name="m54" size="1"><input type="TEXT" name="m55" size="1"><br>';
         block_cle +='Grille</td>';
-        block_cle += '</tr >';
+        block_cle +='</tr>';
+
+
+
+
         $("#cle").html(block_cle);
         // table_cle = '<ul class="cle-number" id="cleplayfair">';
         // for(var i = 0 ; i<5 ; i++){
