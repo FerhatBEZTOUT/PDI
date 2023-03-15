@@ -184,7 +184,7 @@ $(document).ready(function () {
         block_cle = '<h5 class="text-center">Entrez des 25 clés K(W est inutile dans francais) <a class="question-cle" href="#">Plus d\'infos</a></h5>';
         block_cle +='<textarea class="form-control" name="txt-cles" id="txt-cles" cols="30" rows="1"></textarea>'
         $("#cle").html(block_cle);
-        table_cle = '<ul>';
+        table_cle = '<ul class="cle-number" id="cleplayfair">';
         for(var i = 0 ; i<5 ; i++){
             table_cle += '<br>'
             for(var j = 0; j<5 ;j++){
