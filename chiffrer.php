@@ -21,15 +21,25 @@
         
     </div>
     <div></div>
+
+    <!-- Boutton chiffrement -->
     <div class="row col-12 col-md-6 mb-3 d-flex align-items-center justify-content-center" >
-        
         <input type="button" class="btn btn-primary col-12 col-md-6" value="Chiffrer" id="btn-chiffrer">
     </div>
+
+    <!-- Boutton dechiffrement -->
+    <div class="row col-12 col-md-6 mb-3 d-flex align-items-center justify-content-center" >
+        <input type="button" class="btn btn-danger col-12 col-md-6" value="Déchiffrer" id="btn-dechiffrer">
+    </div>
+
+    
     <div class="row">
+        <!-- Zone de texte à chiffrer -->
         <div class="container col-12 col-md-6 mb-3">
             <h6 class="text-center">Texte chiffré</h6>
             <textarea class="form-control" name="txt-chiffrement" id="txt-chiffrement" cols="30" rows="10"></textarea>
         </div>
+        <!-- Zone de texte à déchiffrer -->
         <div class="container col-12 col-md-6 mb-3">
             <h6 class="text-center">Texte en clair</h6>
             <textarea class="form-control" name="txt-result" id="txt-result" cols="30" rows="10"></textarea>

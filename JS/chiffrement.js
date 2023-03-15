@@ -52,6 +52,7 @@ $(document).ready(function () {
 
         $('#cle-cesar > li').click(function () {
             $('#cle-cesar > li[selected-key]').removeAttr('selected-key');
+            
             const clickedItemIndex = $(this).index();
             console.log(clickedItemIndex);
             $('#cle-cesar > li').eq(clickedItemIndex).attr('selected-key', '');
@@ -93,12 +94,14 @@ $(document).ready(function () {
             K = parseInt(K);
 
         }
+        // Vérifier que la clé est correcte
         if (K > 25 || K < 0) {
             $("#exampleModalToggleLabel").text("Erreur de chiffrement");
             $(".modal-body").text("Clé érronée (La clé doit être entre 0 et 25)");
             $("#exampleModalToggle").modal('toggle');
         }
-        // Parcours global du msg à chiffrer
+
+        // Parcours du msg à chiffrer
         for (i = 0; i < texte_en_clair.length; i++) {
             // L : Position de la lettre
             L = alphabet.indexOf(texte_en_clair[i])
