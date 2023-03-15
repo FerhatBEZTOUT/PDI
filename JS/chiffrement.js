@@ -256,9 +256,7 @@ $(document).ready(function () {
         }
         // Vérifier que la clé est correcte
         if (K > 25 || K < 0) {
-            $("#exampleModalToggleLabel").text("Erreur de dechiffrement");
-            $(".modal-body").text("Clé érronée (La clé doit être entre 0 et 25)");
-            $("#exampleModalToggle").modal('toggle');
+            afficher_modal_erreur("Erreur de dechiffrement","Clé érronée (La clé doit être entre 0 et 25)");
         }
 
         // Parcours du msg à déchiffrer
