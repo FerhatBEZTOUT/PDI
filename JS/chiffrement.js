@@ -3,8 +3,17 @@ $(document).ready(function () {
 
 
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    // Tableau contnenant les valeurs possibles pour A de la clé du chiffrement d'affine
     const affine_A_values = [1,3,5,7,9,11,15,17,19,21,23,25];
-    const affine_A_reverse_values = []
+
+    /* Tableau de fréquences des lettres en français indicé par l'ordre de l'alphabet */
+    var freq_lettres = [0.0812, 0.0090, 0.0338, 0.0366, 0.1740,
+                0.0106, 0.0147, 0.0055, 0.0753, 0.0031,
+                0.0005, 0.0555, 0.0292, 0.0689, 0.0834,
+                0.0262, 0.0102, 0.0643, 0.0733, 0.0930,
+                0.0284, 0.0113, 0.0164, 0.0044, 0.0165,
+                0.0023];
+
 
     $("#chiffrement").change(function (e) {
         select_val = $("#chiffrement").val();
@@ -57,12 +66,12 @@ $(document).ready(function () {
         val = $("#chiffrement").val();
 
         switch (val) {
-            case 'cesar': dechiffrement_cesar();
-            case 'affine': dechiffrement_affine();
-            case 'playfair': dechiffrement_playfair();
-            case 'vigenere': dechiffrement_vigenere();
-            case 'scytale': dechiffrement_scytale();
-            case 'hill': dechiffrement_hill();
+            case 'cesar': dechiffrement_cesar(); break;
+            case 'affine': dechiffrement_affine(); break;
+            case 'playfair': dechiffrement_playfair(); break;
+            case 'vigenere': dechiffrement_vigenere(); break;
+            case 'scytale': dechiffrement_scytale(); break;
+            case 'hill': dechiffrement_hill(); break;
         }
     });
 
@@ -83,6 +92,7 @@ $(document).ready(function () {
 
         $("#cle").html(block_cle);
 
+        // click listener pour chaque <li>
         $('#cle-cesar > li').click(function () {
             $('#cle-cesar > li[selected-key]').removeAttr('selected-key');
 
@@ -348,7 +358,9 @@ $(document).ready(function () {
             $("#exampleModalToggle").modal('toggle');
     }
 
-
+    /*
+        algorithme d'euclide etendu pour résoudre les fonctions de la forme : aX - bY = 1 (a et b connus)
+    */
     function euclide_etendu(a, b) {
         // Initialisation
         let x = 0, y = 1, u = 1, v = 0;
@@ -373,7 +385,12 @@ $(document).ready(function () {
       }
 
 
-
+      /*
+        calcule l'inverse modulaire
+        paramétres : 
+            a : le chiffre dont l'inverse modulaire est recherché
+            m : modulo
+       */
       function inverse_modulaire(a, m) {
         const [x, y] = euclide_etendu(a, m);
         if (x < 0) {
