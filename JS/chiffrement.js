@@ -135,7 +135,6 @@ $(document).ready(function () {
 
 
     function createKey(keychars){
-
         //字母顺序数组
         var allChars = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'];
         
@@ -186,8 +185,12 @@ $(document).ready(function () {
         block_cle +='<textarea class="form-control" name="txt-cles" id="txt-cles" cols="30" rows="1"></textarea>'
         block_cle += '</ul>';
         $("#cle").html(block_cle);
-        createKey($("#cle"))
-        str=removeDuplicate($("#cle"))
+        for(var i = 0 ; i<5 ; i++){
+            for(var j = 0; j<5 ;j++){    
+                key[j][i] = $("#cle")[i*5+j];
+                print(key[j][i])
+            } 
+        }
 
     }
 
