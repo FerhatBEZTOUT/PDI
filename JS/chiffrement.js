@@ -324,7 +324,7 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 			chiffre.value += matrice.charAt(5*ligne2 + col1);
 		}
 	}
-	m11.value = matrice.charAt(0);
+	$("#m11").value = matrice.charAt(0);
 	m12.value = matrice.charAt(1);
 	m13.value = matrice.charAt(2);
 	m14.value = matrice.charAt(3);
@@ -351,44 +351,12 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 	m55.value = matrice.charAt(24);
 }
 
-function effacer(clair, chiffre, clef, grille, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
-{
-	clair.value  = "";
-	chiffre.value = "";
-	clef.value  = "";
-	grille.value = "";
-    m11.value = "";
-	m12.value = "";
-	m13.value = "";
-	m14.value = "";
-	m15.value = "";
-	m21.value = "";
-	m22.value = "";
-	m23.value = "";
-	m24.value = "";
-	m25.value = "";
-	m31.value = "";
-	m32.value = "";
-	m33.value = "";
-	m34.value = "";
-	m35.value = "";
-	m41.value = "";
-	m42.value = "";
-	m43.value = "";
-	m44.value = "";
-	m45.value = "";
-	m51.value = "";
-	m52.value = "";
-	m53.value = "";
-	m54.value = "";
-	m55.value = "";
-}
 
     function chiffrement_playfair() {
-        var clef = $("#txt-playfaircles").value;
-        var clair= $("#txt-chiffrement").value;
-        var chiffre=$("#txt-dechiffrement").value;
-        Playfair(clair, clef, chiffre, $("#m11").value, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
+        var clef = $("#txt-playfaircles").val();
+        var clair= $("#txt-chiffrement").val();
+        var chiffre=$("#txt-dechiffrement").val();
+        Playfair(clair, clef, chiffre, $("#m11").val().value, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
     };
 
     function chiffrement_vigenere() {
