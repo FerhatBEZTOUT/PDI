@@ -385,7 +385,7 @@ function effacer(clair, chiffre, clef, grille, m11, m12, m13, m14, m15, m21, m22
 }
 
     function chiffrement_playfair() {
-        var clef = $("#txt-playfaircles");
+        var clef = $("#txt-playfaircles").val();
         var clair= $("#txt-chiffrement");
         var chiffre=$("#txt-dechiffrement");
         Playfair(clair, clef, chiffre, $("#m11"), m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
