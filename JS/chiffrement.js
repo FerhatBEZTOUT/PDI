@@ -324,7 +324,7 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 			chiffre.value += matrice.charAt(5*ligne2 + col1);
 		}
 	}
-	$("#m11").val(matrice.charAt(0));
+	m11.val(matrice.charAt(0));
 	m12.value = matrice.charAt(1);
 	m13.value = matrice.charAt(2);
 	m14.value = matrice.charAt(3);
