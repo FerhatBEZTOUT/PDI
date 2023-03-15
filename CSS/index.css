@@ -63,3 +63,15 @@ html{
 }
 
 
+#cle-cesar > li {
+    width:25px;
+    height: 30px;
+    background-color: rgb(52, 48, 48);
+    color: white;
+    list-style-type: none;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0px 5px 5px 0px;
+    cursor: pointer;
+}

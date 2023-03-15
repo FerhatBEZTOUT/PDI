@@ -15,9 +15,9 @@
         </select>
     </div>
     <div></div>
-    <div class="row col-12 col-md-6 mb-3" id="options-cesar">
-        <label for="cle-cesar">Clé</label>
-        <input id="cle-cesar" type="number" class="form-control" max="25" min="0">
+    <div id="cle" class="row col-12 col-md-6 mb-3" id="options-cesar">
+        
+            
         
     </div>
     <div></div>
@@ -38,7 +38,22 @@
     
 </div>
 
-
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalToggleLabel">Erreur</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Show a second modal and hide this one with the button below.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php 
 include_once __DIR__.'/view/footer.php';
