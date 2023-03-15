@@ -204,11 +204,11 @@ $(document).ready(function () {
         // block_cle += '</tr >';
 
         block_cle ='<tr>';
-        block_cle +='<td bgcolor="#08FF7C" align="CENTER"><textarea name="txt-cles" rows="1" cols="60" wrap="virtual">BYDGZJSFUPLARKXCOIVEQNMHT</textarea></td>';
+        block_cle +='<td bgcolor="#08FF7C" align="CENTER"><h5>Entrez des 25 clés K(W est inutile dans francais) <a class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="txt-cles" rows="1" cols="60" wrap="virtual">BYDGZJSFUPLARKXCOIVEQNMHT</textarea></td>';
         block_cle +='</tr>';
         block_cle +='<tr>';
         block_cle +='<td  bgcolor="#FFCCCC" align="CENTER" >';
-        block_cle +='<input type="TEXT" name="m11" size="1"><input type="TEXT" name="m12" size="1"><input type="TEXT" name="m13" size="1"><input type="TEXT" name="m14" size="1"><input type="TEXT" name="m15" size="1"><br>';
+        block_cle +='<input type="TEXT" name="m11" size="2"><input type="TEXT" name="m12" size="1"><input type="TEXT" name="m13" size="1"><input type="TEXT" name="m14" size="1"><input type="TEXT" name="m15" size="1"><br>';
         block_cle +='<input type="TEXT" name="m21" size="1"><input type="TEXT" name="m22" size="1"><input type="TEXT" name="m23" size="1"><input type="TEXT" name="m24" size="1"><input type="TEXT" name="m25" size="1"><br>';
         block_cle +='<input type="TEXT" name="m31" size="1"><input type="TEXT" name="m32" size="1"><input type="TEXT" name="m33" size="1"><input type="TEXT" name="m34" size="1"><input type="TEXT" name="m35" size="1"><br>';
         block_cle +='<input type="TEXT" name="m41" size="1"><input type="TEXT" name="m42" size="1"><input type="TEXT" name="m43" size="1"><input type="TEXT" name="m44" size="1"><input type="TEXT" name="m45" size="1"><br>';
