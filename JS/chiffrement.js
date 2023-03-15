@@ -351,7 +351,6 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 	m55.value = matrice.charAt(24);
 }
 
-
 function effacer(clair, chiffre, clef, grille, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
 {
 	clair.value  = "";
@@ -388,8 +387,8 @@ function effacer(clair, chiffre, clef, grille, m11, m12, m13, m14, m15, m21, m22
     function chiffrement_playfair() {
         var clef = $("#txt-playfaircles").val().toUpperCase().split(" ").join("").trim();
         var clair=texte_en_clair;
-        var chiffre, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55='';
-        Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
+        var chiffre='';
+        Playfair(clair, clef, chiffre, $("#m11"), m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
     };
 
     function chiffrement_vigenere() {
