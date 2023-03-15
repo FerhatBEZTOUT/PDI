@@ -201,7 +201,7 @@ $(document).ready(function () {
         block_cle +='<input type="TEXT" name="m41" size="1"><input type="TEXT" name="m42" size="1"><input type="TEXT" name="m43" size="1"><input type="TEXT" name="m44" size="1"><input type="TEXT" name="m45" size="1"><br>';
         block_cle +='<input type="TEXT" name="m51" size="1"><input type="TEXT" name="m52" size="1"><input type="TEXT" name="m53" size="1"><input type="TEXT" name="m54" size="1"><input type="TEXT" name="m55" size="1"><br>';
         block_cle +='Grille</td>';
-        block_cle += '</tr>';
+        block_cle += '</tr >';
         $("#cle").html(block_cle);
         // table_cle = '<ul class="cle-number" id="cleplayfair">';
         // for(var i = 0 ; i<5 ; i++){
