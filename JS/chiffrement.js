@@ -332,30 +332,30 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 	}
     $("#txt-dechiffrement").val(chiffre);
 	m11.value=matrice.charAt(0);
-	// m12.value = matrice.charAt(1);
-	// m13.value = matrice.charAt(2);
-	// m14.value = matrice.charAt(3);
-	// m15.value = matrice.charAt(4);
-	// m21.value = matrice.charAt(5);
-	// m22.value = matrice.charAt(6);
-	// m23.value = matrice.charAt(7);
-	// m24.value = matrice.charAt(8);
-	// m25.value = matrice.charAt(9);
-	// m31.value = matrice.charAt(10);
-	// m32.value = matrice.charAt(11);
-	// m33.value = matrice.charAt(12);
-	// m34.value = matrice.charAt(13);
-	// m35.value = matrice.charAt(14);
-	// m41.value = matrice.charAt(15);
-	// m42.value = matrice.charAt(16);
-	// m43.value = matrice.charAt(17);
-	// m44.value = matrice.charAt(18);
-	// m45.value = matrice.charAt(19);
-	// m51.value = matrice.charAt(20);
-	// m52.value = matrice.charAt(21);
-	// m53.value = matrice.charAt(22);
-	// m54.value = matrice.charAt(23);
-	// m55.value = matrice.charAt(24);
+	m12.value = matrice.charAt(1);
+	m13.value = matrice.charAt(2);
+	m14.value = matrice.charAt(3);
+	m15.value = matrice.charAt(4);
+	m21.value = matrice.charAt(5);
+	m22.value = matrice.charAt(6);
+	m23.value = matrice.charAt(7);
+	m24.value = matrice.charAt(8);
+	m25.value = matrice.charAt(9);
+	m31.value = matrice.charAt(10);
+	m32.value = matrice.charAt(11);
+	m33.value = matrice.charAt(12);
+	m34.value = matrice.charAt(13);
+	m35.value = matrice.charAt(14);
+	m41.value = matrice.charAt(15);
+	m42.value = matrice.charAt(16);
+	m43.value = matrice.charAt(17);
+	m44.value = matrice.charAt(18);
+	m45.value = matrice.charAt(19);
+	m51.value = matrice.charAt(20);
+	m52.value = matrice.charAt(21);
+	m53.value = matrice.charAt(22);
+	m54.value = matrice.charAt(23);
+	m55.value = matrice.charAt(24);
 }
 
 
