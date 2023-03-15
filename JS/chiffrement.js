@@ -204,7 +204,6 @@ $(document).ready(function () {
         // block_cle += '</tr >';
 
         block_cle ='<tr>';
-        block_cle +='<td bgcolor="#08FF7C">Message clair</td>';
         block_cle +='<td bgcolor="#08FF7C"><textarea name="clair" rows="6" cols="30" wrap="virtual">CHIFFRE DE PLAYFAIR</textarea></td>';
         block_cle +='<td  bgcolor="#FFCCCC" align="CENTER">';
         block_cle +='<input type="TEXT" name="m11" size="1"><input type="TEXT" name="m12" size="1"><input type="TEXT" name="m13" size="1"><input type="TEXT" name="m14" size="1"><input type="TEXT" name="m15" size="1"><br>';
