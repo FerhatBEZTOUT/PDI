@@ -169,3 +169,9 @@ main {
     flex-grow: 1;
     margin-left: 200px; /* Ajout de cette propriété pour décaler le contenu principal */
 }
+.image-graphique{
+   height: 40%;
+   width:  40%;
+   display : block;
+   margin: auto;
+}

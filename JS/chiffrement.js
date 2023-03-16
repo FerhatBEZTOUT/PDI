@@ -83,7 +83,7 @@ $(document).ready(function () {
 
     function input_cle_cesar() {
         
-        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="cours.php#Chiffrement_César">Plus d\'infos</a></h5>';
         block_cle += '<ul class="cle-number" id="cle-cesar">';
         for (i = 0; i < 26; i++) {
             block_cle += '<li>' + i + '</li>';
