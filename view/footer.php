@@ -7,7 +7,7 @@
     </div>
     <div class="row d-flex justify-content-center mx-auto my-4">
         <div class="col-sm-12 col-md-6 text-center">
-            <h4>Chiffrer</h4>
+            <h4>Enigma</h4>
             <h6>15 Rue Villebois Mareuil 75001 Paris</h6>
             <h6>01 23 45 67 89</h6>
         </div>

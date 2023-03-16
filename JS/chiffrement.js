@@ -83,7 +83,7 @@ $(document).ready(function () {
 
     function input_cle_cesar() {
         
-        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" target="_blank" href="cours.php#Chiffrement_César">Plus d\'infos</a></h5>';
         block_cle += '<ul class="cle-number" id="cle-cesar">';
         for (i = 0; i < 26; i++) {
             block_cle += '<li>' + i + '</li>';
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function input_cle_affine() {
         
-        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a class="question-cle" href="#"> Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a target="_blank" class="question-cle" href="#"> Plus d\'infos</a></h5>';
         
         block_cle += '<h4>A</h4>';
         block_cle += '<ul class="cle-number" id="cle-affine-a">';
@@ -146,8 +146,9 @@ $(document).ready(function () {
            
     function input_cle_playfair() {
 
+        
         block_cle ='<tr>';
-        block_cle +='<td align="CENTER"><h5>Entrez des 25 clés K(W est inutile dans francais) <a class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="txt-playfaircles" rows="1" cols="60" wrap="virtual">BYDGZJSFUPLARKXCOIVEQNMHT</textarea></td>';
+        block_cle +='<td align="CENTER"><h5>Entrez des 25 clés K(W est inutile dans francais) <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="txt-playfaircles" rows="1" cols="60" wrap="virtual">BYDGZJSFUPLARKXCOIVEQNMHT</textarea></td>';
         block_cle +='</tr>';
         block_cle +='<tr>';
         block_cle +='<td align="CENTER" ><h5>Grille</h5>';
@@ -162,7 +163,7 @@ $(document).ready(function () {
     }
 
     function input_cle_vigenere() {
-        block_cle = '<h5 class="text-center">Choisir une clé K <a class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5>';
         block_cle += '<input type="text" class="form-control" id="cle-vigenere">';
         
         
@@ -373,7 +374,6 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
         K = []
         for (i=0;i<longueur_txt;i++) {
             K.push(alphabet.indexOf(K_txt[i]));
-            console.log(K[i]);
         }
         
         // Parcours du msg à chiffrer
@@ -402,9 +402,39 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 
     };
 
-    function chiffrement_hill() {
 
-    };
+    function chiffrement_hill(key) {
+        
+        let cipherText = '';
+        
+        // Split the Text into blocks and encrypt each block
+        for (let i = 0; i < texte_en_clair.length; i += keySize) {
+          const block = texte_en_clair.slice(i, i + keySize);
+          let blockMatrix = [];
+          
+          // Create a matrix from the block
+          for (let j = 0; j < block.length; j++) {
+            blockMatrix.push(block.charCodeAt(j) - 65);
+          }
+          
+          // Multiply the key matrix with the block matrix
+          let encryptedMatrix = new Array(keySize).fill(0);
+          for (let j = 0; j < keySize; j++) {
+            for (let k = 0; k < keySize; k++) {
+              encryptedMatrix[j] += key[j * keySize + k] * blockMatrix[k];
+            }
+            encryptedMatrix[j] = encryptedMatrix[j] % 26;
+          }
+          
+          // Convert the encrypted matrix back into characters
+          for (let j = 0; j < encryptedMatrix.length; j++) {
+            cipherText += String.fromCharCode(encryptedMatrix[j] + 65);
+          }
+        }
+        
+        return cipherText;
+      }
+      
 
 
 
@@ -487,6 +517,9 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
         // Affichage du texte dans un text-area
         $("#txt-chiffrement").val(msg_en_clair);
     };
+
+
+
 //dechiffrement_playfair()
 function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
 {
@@ -544,7 +577,41 @@ function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m2
     };
 
     function dechiffrement_vigenere() {
+        // Récupérer la clé (texte)
+        K_txt = $("#cle-vigenere").val().toUpperCase().split(" ").join("").trim();
+    
+        longueur_txt = K_txt.length;
 
+        // Transformer en valeurs numériques
+        K = []
+        for (i=0;i<longueur_txt;i++) {
+            K.push(alphabet.indexOf(K_txt[i]));
+            
+        }
+        
+        // Parcours du msg à chiffrer
+        i = 0
+       
+        while ( i < texte_chiffre.length) {
+            // L : Position de la lettre en clar
+            C = alphabet.indexOf(texte_chiffre[i])
+
+            // Recuperer valeur une lettre de la clé
+            K_ieme = K[i % longueur_txt]
+            
+            // C : Nouvelle position de la lettre chiffrée
+            L = (C - K_ieme) % 26;
+
+            if (L<0) {
+                L+=26;
+            }
+            msg_en_clair += alphabet[L];
+
+            i++;
+        }
+
+        // Affichage du texte dans un text-area
+        $("#txt-chiffrement").val(msg_en_clair);
     };
 
     function dechiffrement_scytale() {
