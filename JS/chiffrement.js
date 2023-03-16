@@ -360,7 +360,72 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 
 
     function chiffrement_playfair() {
-        Playfair($("#txt-chiffrement"),$("#txt-playfaircles"),$("#txt-dechiffrement"), $("#m11"), $("m12"), $("m13"), $("m14"), $("m15"), $("m21"), $("m22"), $("m23"), $("m24"), $("m25"), $("m31"),$("m32"), $("m33"), $("m34"), $("m35"), $("m41"), $("m42"), $("m43"), $("m44"), $("m45"), $("m51"), $("m52"), $("m53"), $("m54"), $("m55"))
+        // Playfair($("#txt-chiffrement"),$("#txt-playfaircles"),$("#txt-dechiffrement"), $("#m11"), $("m12"), $("m13"), $("m14"), $("m15"), $("m21"), $("m22"), $("m23"), $("m24"), $("m25"), $("m31"),$("m32"), $("m33"), $("m34"), $("m35"), $("m41"), $("m42"), $("m43"), $("m44"), $("m45"), $("m51"), $("m52"), $("m53"), $("m54"), $("m55"))
+    clef=$("#txt-playfaircles")
+    clair=$("#txt-chiffrement")
+    matrice = CreerGrille(clef);
+	n=0;
+	standard(clair);
+	chiffre.value = ""; 
+	for(nbr = 0; nbr < clair.value.length; nbr=nbr+2){
+	    ch1   = clair.value.charAt(nbr);
+	    ch2   = clair.value.charAt(nbr+1);
+            if (ch1 == ch2) {ch2="X"; nbr=nbr-1};    // Žlimine les doublons
+		ord1  = matrice.indexOf(ch1);
+		ligne1 = Math.floor(ord1 / 5);
+		col1  = ord1 % 5;
+		ord2  = matrice.indexOf(ch2);
+		ligne2 = Math.floor(ord2 / 5);
+		col2  = ord2 % 5;
+		if (ligne1 == ligne2) {
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(5*ligne1 + (col1 + 1)%5);
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(5*ligne2 + (col2 + 1)%5);
+		} else if (col1 == col2) {
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(col1 + 5*((ligne1+1)%5));
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(col2 + 5*((ligne2+1)%5));
+		} else {
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(5*ligne1 + col2);
+ 	  		if ((n%5==0) && (n>0)) {chiffre.value+=" "};
+	 		n++;
+			chiffre.value += matrice.charAt(5*ligne2 + col1);
+		}
+	}
+    $("#txt-dechiffrement").val(chiffre.value);
+	$("#m11").value = matrice.charAt(0);
+	$("#m12").value = matrice.charAt(1);
+	$("#m13").value = matrice.charAt(2);
+	$("#m14").value = matrice.charAt(3);
+	$("#m15").value = matrice.charAt(4);
+	$("#m21").value = matrice.charAt(5);
+	$("#m22").value = matrice.charAt(6);
+	$("#m23").value = matrice.charAt(7);
+	$("#m24").value = matrice.charAt(8);
+	$("#m25").value = matrice.charAt(9);
+	$("#m31").value = matrice.charAt(10);
+	$("#m32").value = matrice.charAt(11);
+	$("#m33").value = matrice.charAt(12);
+	$("#m34").value = matrice.charAt(13);
+	$("#m35").value = matrice.charAt(14);
+	$("#m41").value = matrice.charAt(15);
+	$("#m42").value = matrice.charAt(16);
+	$("#m43").value = matrice.charAt(17);
+	$("#m44").value = matrice.charAt(18);
+	$("#m45").value = matrice.charAt(19);
+	$("#m51").value = matrice.charAt(20);
+	$("#m52").value = matrice.charAt(21);
+	$("#m53").value = matrice.charAt(22);
+	$("#m54").value = matrice.charAt(23);
+	$("#m55").value = matrice.charAt(24);
     };
 
     function chiffrement_vigenere() {
