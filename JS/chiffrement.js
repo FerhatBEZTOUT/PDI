@@ -265,7 +265,7 @@ $(document).ready(function () {
   {
     if (alphabet.indexOf(entree.value.charAt(i))!=-1)
     {
-      entree_standard += entree.value.charAt(i)
+      entree_standard += entree.value.charAt(i);
     }
   }
   entree.value = entree_standard;
@@ -363,6 +363,20 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
         // Playfair($("#txt-chiffrement"),$("#txt-playfaircles"),$("#txt-dechiffrement"), $("#m11"), $("m12"), $("m13"), $("m14"), $("m15"), $("m21"), $("m22"), $("m23"), $("m24"), $("m25"), $("m31"),$("m32"), $("m33"), $("m34"), $("m35"), $("m41"), $("m42"), $("m43"), $("m44"), $("m45"), $("m51"), $("m52"), $("m53"), $("m54"), $("m55"))
     clef=$("#txt-playfaircles")
     clair=$("#txt-chiffrement")
+    standard(clef);
+	var matrice  = '';
+	for(var nbr = 0; nbr < clef.value.length; nbr++){
+		ch= clef.value.charAt(nbr);
+		if (grille.indexOf (ch) < 0) {
+			grille += ch;
+		}
+	}
+	for(var nbr = 0; nbr < alphabet.length; nbr++){
+		ch= alphabet.charAt(nbr);
+		if (grille.indexOf (ch) < 0) {
+			grille += ch;
+		}
+	}
     matrice = CreerGrille(clef);
 	n=0;
 	standard(clair);
