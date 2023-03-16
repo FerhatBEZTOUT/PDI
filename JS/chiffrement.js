@@ -646,7 +646,6 @@ function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m2
 
 
 
-
     /* END OF SCRIPT */  
 });
 
