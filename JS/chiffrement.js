@@ -374,7 +374,6 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
         K = []
         for (i=0;i<longueur_txt;i++) {
             K.push(alphabet.indexOf(K_txt[i]));
-            console.log(K[i]);
         }
         
         // Parcours du msg à chiffrer
@@ -488,6 +487,9 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
         // Affichage du texte dans un text-area
         $("#txt-chiffrement").val(msg_en_clair);
     };
+
+
+
 //dechiffrement_playfair()
 function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
 {
@@ -545,7 +547,41 @@ function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m2
     };
 
     function dechiffrement_vigenere() {
+        // Récupérer la clé (texte)
+        K_txt = $("#cle-vigenere").val().toUpperCase().split(" ").join("").trim();
+    
+        longueur_txt = K_txt.length;
 
+        // Transformer en valeurs numériques
+        K = []
+        for (i=0;i<longueur_txt;i++) {
+            K.push(alphabet.indexOf(K_txt[i]));
+            
+        }
+        
+        // Parcours du msg à chiffrer
+        i = 0
+       
+        while ( i < texte_chiffre.length) {
+            // L : Position de la lettre en clar
+            C = alphabet.indexOf(texte_chiffre[i])
+
+            // Recuperer valeur une lettre de la clé
+            K_ieme = K[i % longueur_txt]
+            
+            // C : Nouvelle position de la lettre chiffrée
+            L = (C - K_ieme) % 26;
+
+            if (L<0) {
+                L+=26;
+            }
+            msg_en_clair += alphabet[L];
+
+            i++;
+        }
+
+        // Affichage du texte dans un text-area
+        $("#txt-chiffrement").val(msg_en_clair);
     };
 
     function dechiffrement_scytale() {
