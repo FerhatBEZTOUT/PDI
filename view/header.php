@@ -50,7 +50,6 @@
 
                     <li class="nav-item">
                         <a class="nav-link menuNav" href="cours.php">Cours</a>
-
                     </li>
 
 
