@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function input_cle_affine() {
         
-        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a target="_blank" class="question-cle" href="#"> Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a target="_blank" class="question-cle" href="cours.php#chiffrement_affine"> Plus d\'infos</a></h5>';
         
         block_cle += '<h4>A</h4>';
         block_cle += '<ul class="cle-number" id="cle-affine-a">';
@@ -146,6 +146,7 @@ $(document).ready(function () {
            
     function input_cle_playfair() {
 
+        
         block_cle ='<tr>';
         block_cle +='<td align="CENTER"><h5>Entrez des 25 clés K(W est inutile dans francais) <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="txt-playfaircles" rows="1" cols="60" wrap="virtual">BYDGZJSFUPLARKXCOIVEQNMHT</textarea></td>';
         block_cle +='</tr>';
@@ -162,7 +163,7 @@ $(document).ready(function () {
     }
 
     function input_cle_vigenere() {
-        block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="cours.php#chiffrement_vigenere">Plus d\'infos</a></h5>';
         block_cle += '<input type="text" class="form-control" id="cle-vigenere">';
         
         
@@ -287,7 +288,6 @@ function CreerGrille (clef)
 			grille += ch
 		}
 	}
-    $("#m1").val(grille[0]);
 	return grille
 }
 
@@ -402,9 +402,39 @@ function Playfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, 
 
     };
 
-    function chiffrement_hill() {
 
-    };
+    function chiffrement_hill(key) {
+        
+        let cipherText = '';
+        
+        // Split the Text into blocks and encrypt each block
+        for (let i = 0; i < texte_en_clair.length; i += keySize) {
+          const block = texte_en_clair.slice(i, i + keySize);
+          let blockMatrix = [];
+          
+          // Create a matrix from the block
+          for (let j = 0; j < block.length; j++) {
+            blockMatrix.push(block.charCodeAt(j) - 65);
+          }
+          
+          // Multiply the key matrix with the block matrix
+          let encryptedMatrix = new Array(keySize).fill(0);
+          for (let j = 0; j < keySize; j++) {
+            for (let k = 0; k < keySize; k++) {
+              encryptedMatrix[j] += key[j * keySize + k] * blockMatrix[k];
+            }
+            encryptedMatrix[j] = encryptedMatrix[j] % 26;
+          }
+          
+          // Convert the encrypted matrix back into characters
+          for (let j = 0; j < encryptedMatrix.length; j++) {
+            cipherText += String.fromCharCode(encryptedMatrix[j] + 65);
+          }
+        }
+        
+        return cipherText;
+      }
+      
 
 
 

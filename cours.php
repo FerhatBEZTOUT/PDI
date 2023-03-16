@@ -115,12 +115,16 @@ include_once __DIR__ . '/view/header.php';
           <h4> Chiffre de subsitution mono-alphabétique </h4>
           <p> Chaque lettre du message d'origine est toujours remplacée par une même autre lettre. </br> </p>
 
-          <h4> Chiffre de subsitution poly-alphabétique </h4>
-          <p> Une même lettre du message d'origine peut être remplacée par plusieurs lettres différentes </br> </p>
-
-          <h4> Chiffre de subsitution polygrammique </h4>
-          <p> Les lettres ne sont pas remplacées une par une, mais par blocs de plusieurs (deux ou trois généralement).
-            Par exemple, dans une subsitution bigrammique, deux lettres du texte clair sont transformées en deux lettre du cryptogramme. </br> </p>
+    <h4> Chiffre de subsitution polygrammique </h4>
+    <p> Les lettres ne sont pas remplacées une par une, mais par blocs de plusieurs (deux ou trois généralement).
+        Par exemple, dans une subsitution bigrammique, deux lettres du texte clair sont transformées en deux lettre du cryptogramme. </br> </p>
+</br>
+</br>
+    <section id="Chiffrement_César">
+    <h3> Chiffrement de César </h3>
+    <p> Le chiffrement de César est la méthode de cryptographie la plus ancienne communément admise par l'histoire.
+      Il consiste en une substitution mono-alphabétique, où la substitution est définie par un décalage de lettre.
+      L'algorithme de chiffrement consiste à décaler les lettres de l'alphabet, selon la clé de chiffrement k qui représente le nombre de lettres à déclaer </br> </p>
 
           <section id="Chiffrement_César">
             <h3> Chiffrement de César </h3>
@@ -141,8 +145,81 @@ include_once __DIR__ . '/view/header.php';
                           C = H
                           
 
-              </p>
-          </section>
+    <h5> Méthode d'Al-Kindi </h5>
+    <p> La méthode d'Al-Kindi est basée sur une analyse des fréquences d'apparition de chaque lettre dans une langue.
+         Nous pouvons en dresser un histogramme, comme le montre la figure ci dessous : </p>
+    <div>   
+    <img class ="image-graphique" src= "https://image1.slideserve.com/2862540/fr-quences-des-lettres-dans-diff-rentes-langues-l.jpg" width=40% height=40%>
+    </div>
+</br>
+    <p> L'attaquant met alors en relation la fréquence des lettres du message codé avec ces statistiques.
+      Ainsi, il puet alors connaître la plupart des lettres du message, mais pas toutes (certaines ayant des fréquences trop similaires).
+      Cependant, la découvrete des lettres principales permet de percer le reste du message. Cette technique nécessite en outre que le texte ait une longuer suffisante
+      et implique que l'attaquant connaisse la langue d'origine du message crypté. </br> </p>
+    <p> Le chiffrement de César est très peu sûr, puisqu'il est très facile de tester de façon exhaustive toutes les possibilités. 
+      Pourant ,en raison de sa grande simplicité, le code de César fut encore employé par les officiers sudistes pendant la guerre de Sécession, et même par l'armée russe en 1915. </p>
+</br>
+</br>
+    <section id ="chiffrement_affine">
+      <h3> Chiffrement d'Affine </h3>
+      <p> C'est une version améliorée du chiffrement de César. Au lieu d'additionner le pas de décalage, on utise ce qu'on appelle la fonction d'Affine : </br> </p>
+      <ul>
+        <li> F(X) = aX + b</li>
+        <li> La clé est (a,b) tel que a,b  [0..25] et PGCD (a,26) = 1</li>
+        <li> <b> Chiffrement </b> : C  = (a * L + b) mod 26 </li>
+        <li> <b> Déchiffrement </b> : L = a⁻¹ * (C-b) mod 26</li>
+      </ul>
+      <p> <b> Remarque </b> Si a = 1, alors on se retrouve avec le chiffrement de césar </p>
+
+      <h4> Comment choisir les nombres a et b ? </h4>
+      <p> Pour que le codage puisse remplir sa fonction, il faut qu'a chaque entier n dans [0,25] siut assicué 
+        une unique image n' = axn + b dans [0,25] ce qui ne sera pas le cas pour tous les couples (a,b).</br>
+        En effet, si par exemple on choisit a = 4 et b = 1, on voit que pour n = 0, on trouve n' = 4x0 + 1 ≡ 1[26], mais si n = 13 alors n' = 4x13 + 1 ≡ 1[26],
+        on a donc une ambiguité, car 0 et 13 ont la même image par la transformation affine. </br>
+        Lorsque n décrit [0,25], les valeurs de n' seront toutes différentes les unes des autres si et seulement si 
+        a est un entier premier avec 26 dans [0,25]. 
+        b peut être librement choisi parmi les 26 entiers de [0,25] </br> </p>
+
+      <h4> Cryptanalyse du chiffrement d'Affine </h4>
+      <p> On peut se servir de la méthode d'Al-Kindi, pour établir la fréquence relative à chaque lettre chiffrée, puis identifier 
+        les chiffres des deux lettres les plus fréquentes. Enfin, on résout le système d'équations à deux inconnus : </br> </p>
+        <ul>
+          <li> F(L1) = C1 = (a*L1 +b) mod 26 </li>
+          <li> F(L2) = C2 = (a*L2 +b) mod 26</li>
+        </ul>
+      <b> Exemple : </b>
+       <ul>
+         <li> F ("E") = F(4) = 6 ≡ "G" -> (4a + b) mod 26 = 6 </li>
+         <li> F ("T") = F(16) = 7 ≡ "H"  -> (19a + b) mod 26 = 7</li>
+         <li> (a,b) = (7,4) </li>
+        </ul>
+    </section>
+
+</br>
+</br>
+    <section id="chiffrement_vigenere">
+      <h3> Chiffrement de Vigenère </h3>
+      <p> C'est un chiffrement <b> poly-alphabétique </b>, le chiffrement de Vigenère est une amélioration du chiffrement
+      de César. Sa force réside dans l'utilisation non pas d'un, mais de 26 alphabets décalés pour chiffrer un message.
+      On peut résumer ces décalages avec un carré de Vigenère. 
+      Ce chiffrement utilise une clé qui définit le décalage pour chaque lettre du message (A : déclage de 0 pas, B: de 1 pas etc...). </br>
+      La grande force du chiffrement de Vigenère est que la même lettre sera chiffrée de différentes manières. </br>
+      Si la clé est aussi longue que le texte en clair et moyennant quelques précautions d'utilisation, le système est appelé masque jetable. </p>
+
+      <img class="image-vigenere" src ="https://e.educlever.com/img/6/1/2/5/612517.png" width = 30% height= 30%>
+    </section>
+</br>
+      <h4> Cryptanalyse du chiffrement de Vigenère </h4>
+      <p> La première étape de cette méthode de déchiffrement consiste à determiner la taille de la clé de chiffrement.
+        L'opération qui permet de la déterminer porte le nom du test de Kasiski, du nom de son inventeur. Il s'appuie sur les répétitions du texte chiffré. </p>
+
+      <img class="image-carre" src="https://fr.scoutwiki.org/images/0/07/Vigenere.gif" width = 30% height= 30%>
+
+  <!-- Chapitre 3 -->
+  <section id="chapitre3">
+    <h2>Chapitre 3 : Le chiffrement par transposition</h2>
+    <p>Le chiffrement par transposition est une autre technique de chiffrement qui consiste à permuter les lettres du message. Nous allons l'étudier en détail dans ce chapitre.</p>
+  </section>
 
           <h4> Cryptanalyse du chiffrement de César </h4>
           <p> Cette méthode étant assez primaire, afin de décrypter, il suffit de tester les 26 sortes de déclages possibles.
