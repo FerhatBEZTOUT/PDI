@@ -131,12 +131,12 @@
     <h4> Formellement </h4>
     <ul>
              <li><b> Chiffrement : </b> C = (L + K) mod 26 </li>
-             <li><b> Déchiffrement : </b> ensemble de textes <b> chiffrés </b> </li>
+             <li><b> Déchiffrement : </b>L = (C - K) mod 26 </li>
              <li><b> L : </b> représente la lettre du texte clair </li>
              <li><b> C : </b> le résultat du chiffrement de la lettre L </li>
              <li><b> K : </b> représente la clé de chiffrement (le pas de déclage)</li>
    <p> <b> NB : </b> On commence le calcul par 0, c'est-à-dire la lettre A = 0 </br>
-       <b> Exemple : </b> D = (3+3) mode 26 = 6 = G </p>
+       <b> Exemple : </b> D = (3+3) mod 26 = 6 = G </p>
     </section>
 
     <h4> Cryptanalyse du chiffrement de César </h4>
