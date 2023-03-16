@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function input_cle_affine() {
         
-        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a target="_blank" class="question-cle" href="#"> Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K (K=(A,B))<a target="_blank" class="question-cle" href="cours.php#chiffrement_affine"> Plus d\'infos</a></h5>';
         
         block_cle += '<h4>A</h4>';
         block_cle += '<ul class="cle-number" id="cle-affine-a">';
@@ -163,7 +163,7 @@ $(document).ready(function () {
     }
 
     function input_cle_vigenere() {
-        block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5>';
+        block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="cours.php#chiffrement_vigenere">Plus d\'infos</a></h5>';
         block_cle += '<input type="text" class="form-control" id="cle-vigenere">';
         
         
@@ -737,7 +737,6 @@ function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m2
           return x;
         }
       }
-
 
 
 

@@ -170,8 +170,17 @@ main {
     margin-left: 200px; /* Ajout de cette propriété pour décaler le contenu principal */
 }
 .image-graphique{
-   height: 40%;
-   width:  40%;
    display : block;
    margin: auto;
 }
+.image-vigenere{
+    display : flex;
+    justify-content: center;
+    margin: auto;
+ }
+
+ .image-carre{
+    display : flex;
+    justify-content: center;
+    margin: auto;
+ }

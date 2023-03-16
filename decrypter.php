@@ -25,7 +25,7 @@
 
   <!-- Boutton décrypter -->
   <div class="row col-12 col-md-6 mb-3 d-flex align-items-center justify-content-center">
-    <input type="button" class="btn btn-primary col-12 col-md-6" value="Chiffrer" id="btn-decrypter">
+    <input type="button" class="btn btn-warning col-12 col-md-6" value="Décrypter" id="btn-decrypter">
   </div>
 
  
