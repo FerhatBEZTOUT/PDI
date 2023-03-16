@@ -17,21 +17,18 @@
   <div></div>
   
   <!-- Bloc clé -->
-  <div id="cle" class="row col-12 col-md-6 mb-3" id="options-cesar">
+  <div id="cle" class="row col-12 col-md-6 mb-3">
 
   </div>
 
   <div></div>
 
-  <!-- Boutton chiffrement -->
+  <!-- Boutton décrypter -->
   <div class="row col-12 col-md-6 mb-3 d-flex align-items-center justify-content-center">
-    <input type="button" class="btn btn-primary col-12 col-md-6" value="Chiffrer" id="btn-chiffrer">
+    <input type="button" class="btn btn-primary col-12 col-md-6" value="Chiffrer" id="btn-decrypter">
   </div>
 
-  <!-- Boutton dechiffrement -->
-  <div class="row col-12 col-md-6 mb-3 d-flex align-items-center justify-content-center">
-    <input type="button" class="btn btn-danger col-12 col-md-6" value="Déchiffrer" id="btn-dechiffrer">
-  </div>
+ 
 
 
   <div class="row">
