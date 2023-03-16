@@ -287,7 +287,6 @@ function CreerGrille (clef)
 			grille += ch
 		}
 	}
-    $("#m1").val(grille[0]);
 	return grille
 }
 
