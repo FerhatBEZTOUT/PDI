@@ -363,7 +363,7 @@ $(document).ready(function () {
 	// }
     // $("#txt-dechiffrement").val(chiffre);
 
-    }
+    };
 
     function chiffrement_vigenere() {
 
