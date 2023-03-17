@@ -167,7 +167,7 @@ include_once __DIR__ . '/view/header.php';
         <li> F(X) = aX + b</li>
         <li> La clé est (a,b) tel que a,b  [0..25] et PGCD (a,26) = 1</li>
         <li> <b> Chiffrement </b> : C  = (a * L + b) mod 26 </li>
-        <li> <b> Déchiffrement </b> : L = a⁻¹ * (C-b) mod 26</li>
+        <li> <b> Déchiffrement </b> : L = a⁻¹ * (C-b) mod 26 (avec a⁻¹ l'inverse modulaire de a)</li>
       </ul>
       <p> <b> Remarque </b> Si a = 1, alors on se retrouve avec le chiffrement de césar </p>
 
