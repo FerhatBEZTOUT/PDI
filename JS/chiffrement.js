@@ -506,62 +506,58 @@ $(document).ready(function () {
         $("#txt-chiffrement").val(msg_en_clair);
     };
 
-
-
-//dechiffrement_playfair()
-// function InvPlayfair(clair, clef, chiffre, m11, m12, m13, m14, m15, m21, m22, m23, m24, m25, m31, m32, m33, m34, m35, m41, m42, m43, m44, m45, m51, m52, m53, m54, m55)
-// {
-// 	matrice = CreerGrille(clef);
-// 	standard(chiffre);
-// 	clair.value = ""; 
-// 	for(nbr = 0; nbr < chiffre.value.length; nbr=nbr+2){
-// 	    ch1   = chiffre.value.charAt(nbr);
-// 	    ch2   = chiffre.value.charAt(nbr+1);
-// 		ord1  = matrice.indexOf(ch1);
-// 		ligne1 = Math.floor(ord1 / 5);
-// 		col1  = ord1 % 5;
-// 		ord2  = matrice.indexOf(ch2);
-// 		ligne2 = Math.floor(ord2 / 5);
-// 		col2  = ord2 % 5;
-// 		if (ligne1 == ligne2) {
-// 			clair.value += matrice.charAt(5*ligne1 + (col1 + 4)%5);
-// 			clair.value += matrice.charAt(5*ligne2 + (col2 + 4)%5);
-// 		} else if (col1 == col2) {
-// 			clair.value += matrice.charAt(col1 + 5*((ligne1+4)%5));
-// 			clair.value += matrice.charAt(col2 + 5*((ligne2+4)%5));
-// 		} else {
-// 			clair.value += matrice.charAt(5*ligne1 + col2);
-// 			clair.value += matrice.charAt(5*ligne2 + col1);
-// 		}
-// 	}
-// 	m11.value = matrice.charAt(0);
-// 	m12.value = matrice.charAt(1);
-// 	m13.value = matrice.charAt(2);
-// 	m14.value = matrice.charAt(3);
-// 	m15.value = matrice.charAt(4);
-// 	m21.value = matrice.charAt(5);
-// 	m22.value = matrice.charAt(6);
-// 	m23.value = matrice.charAt(7);
-// 	m24.value = matrice.charAt(8);
-// 	m25.value = matrice.charAt(9);
-// 	m31.value = matrice.charAt(10);
-// 	m32.value = matrice.charAt(11);
-// 	m33.value = matrice.charAt(12);
-// 	m34.value = matrice.charAt(13);
-// 	m35.value = matrice.charAt(14);
-// 	m41.value = matrice.charAt(15);
-// 	m42.value = matrice.charAt(16);
-// 	m43.value = matrice.charAt(17);
-// 	m44.value = matrice.charAt(18);
-// 	m45.value = matrice.charAt(19);
-// 	m51.value = matrice.charAt(20);
-// 	m52.value = matrice.charAt(21);
-// 	m53.value = matrice.charAt(22);
-// 	m54.value = matrice.charAt(23);
-// 	m55.value = matrice.charAt(24);
-// }
     function dechiffrement_playfair() {
-
+        clef = $("#txt-playfaircles").val();
+        var matrice = CreerGrille(clef);
+        $("#m11").val(matrice.charAt(0)); 
+        $("#m12").val(matrice.charAt(1)); 
+        $("#m13").val(matrice.charAt(2)); 
+        $("#m14").val(matrice.charAt(3)); 
+        $("#m15").val(matrice.charAt(4)); 
+        $("#m21").val(matrice.charAt(5)); 
+        $("#m22").val(matrice.charAt(6)); 
+        $("#m23").val(matrice.charAt(7)); 
+        $("#m24").val(matrice.charAt(8)); 
+        $("#m25").val(matrice.charAt(9)); 
+        $("#m31").val(matrice.charAt(10)); 
+        $("#m32").val(matrice.charAt(11)); 
+        $("#m33").val(matrice.charAt(12)); 
+        $("#m34").val(matrice.charAt(13)); 
+        $("#m35").val(matrice.charAt(14));
+        $("#m41").val(matrice.charAt(15)); 
+        $("#m42").val(matrice.charAt(16)); 
+        $("#m43").val(matrice.charAt(17)); 
+        $("#m44").val(matrice.charAt(18)); 
+        $("#m45").val(matrice.charAt(19));
+        $("#m51").val(matrice.charAt(20)); 
+        $("#m52").val(matrice.charAt(21)); 
+        $("#m53").val(matrice.charAt(22)); 
+        $("#m54").val(matrice.charAt(23)); 
+        $("#m55").val(matrice.charAt(24));   
+	    chiffre=standard(texte_chiffre);
+	    clair= ""; 
+	    for(nbr = 0; nbr < chiffre.length; nbr=nbr+2){
+	        ch1   = chiffre.charAt(nbr);
+	        ch2   = chiffre.charAt(nbr+1);
+		    ord1  = matrice.indexOf(ch1);
+		    ligne1 = Math.floor(ord1 / 5);
+		    col1  = ord1 % 5;
+		    ord2  = matrice.indexOf(ch2);
+		    ligne2 = Math.floor(ord2 / 5);
+		    col2  = ord2 % 5;
+		    if (ligne1 == ligne2) {
+			    clair += matrice.charAt(5*ligne1 + (col1 + 4)%5);
+			    clair += matrice.charAt(5*ligne2 + (col2 + 4)%5);
+		    } else if (col1 == col2) {
+			    clair += matrice.charAt(col1 + 5*((ligne1+4)%5));
+			    clair += matrice.charAt(col2 + 5*((ligne2+4)%5));
+		    } else {
+			    clair += matrice.charAt(5*ligne1 + col2);
+			    clair += matrice.charAt(5*ligne2 + col1);
+		    }
+	    }
+        msg_en_clair=clair;
+        $("#txt-chiffrement").val(msg_en_clair);
     };
 
     function dechiffrement_vigenere() {
