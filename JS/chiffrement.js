@@ -299,8 +299,8 @@ $(document).ready(function () {
         var clair = texte_en_clair;
 	    var matrice  = '';
         matrice = CreerGrille(clef);
-        $('#txt-dechiffrement').val(matrice);
-        $("#m11").value = matrice.charAt(0) ; 
+        // $('#txt-dechiffrement').val(matrice);
+        $("#m11").val(matrice.charAt(0)); 
 	    $("#m12").value = matrice.charAt(1);
 	    $("#m13").value = matrice.charAt(2);
 	    $("#m14").value = matrice.charAt(3);
