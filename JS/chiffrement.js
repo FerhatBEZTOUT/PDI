@@ -295,7 +295,8 @@ $(document).ready(function () {
 
 
     function chiffrement_playfair() {
-        $('#txt-dechiffrement').val(texte_en_clair);
+        msg = "asd"
+        $('#txt-dechiffrement').val(msg);
     // clef = $("#txt-playfaircles").value;
     // clair = texte_en_clair;
 	// var matrice  = '';
