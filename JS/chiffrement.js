@@ -160,6 +160,7 @@ $(document).ready(function () {
         block_cle +='</td>';
         block_cle +='</tr>';
         $("#cle").html(block_cle);
+        $("#txt-dechiffrement").val(texte_en_clair);
     }
 
     function input_cle_vigenere() {
@@ -299,7 +300,6 @@ function chiffrement_playfair() {
     clair = $("#txt-chiffrement").value;
 	var matrice  = '';
     matrice = CreerGrille(clef);
-    $("#txt-dechiffrement").val(clair);
     $("#m11").value = matrice.charAt(0) ; 
 	$("#m12").value = matrice.charAt(1);
 	$("#m13").value = matrice.charAt(2);
