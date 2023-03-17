@@ -294,8 +294,8 @@ $(document).ready(function () {
     }
 
 
-function chiffrement_playfair() {
-    $('#txt-dechiffrement').val('asd');
+    function chiffrement_playfair() {
+        $('#txt-dechiffrement').val('asd');
     // clef = $("#txt-playfaircles").value;
     // clair = texte_en_clair;
 	// var matrice  = '';
@@ -363,7 +363,7 @@ function chiffrement_playfair() {
 	// }
     // $("#txt-dechiffrement").val(chiffre);
 
-}
+    }
 
     function chiffrement_vigenere() {
 
