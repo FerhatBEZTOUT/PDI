@@ -256,48 +256,48 @@ $(document).ready(function () {
         $("#txt-dechiffrement").val(msg_chiffre);
     };
 
-//chiffrement_playfair
-function standard(entree)
-{
-  entree=entree.toUpperCase();
-  longueur = entree.length;
-  entree_standard='';
-  for (i=0; i<longueur; i++)
-  {
-    if (alphabet.indexOf(entree.charAt(i))!=-1)
+    //chiffrement_playfair
+    function standard(entree)
     {
-      entree_standard += entree.charAt(i);
+        entree=entree.toUpperCase();
+        longueur = entree.length;
+        entree_standard='';
+        for (i=0; i<longueur; i++)
+        {
+            if (alphabet.indexOf(entree.charAt(i))!=-1)
+            {
+                entree_standard += entree.charAt(i);
+            }
+        }
+        entree=entree_standard;
+        return entree;
     }
-  }
-  entree=entree_standard;
-  return entree;
-}
 
 
-function CreerGrille (clef)
-{
-	clef = standard(clef);
-	var grille  = '';
-	for(var nbr = 0; nbr < clef.length; nbr++){
-		ch= clef.charAt(nbr);
-		if (grille.indexOf (ch) < 0) {
-			grille += ch;
-		}
-	}
-	for(var nbr = 0; nbr < alphabet.length; nbr++){
-		ch= alphabet.charAt(nbr);
-		if (grille.indexOf (ch) < 0) {
-			grille += ch;
-		}
-	}
-	return grille;
-}
+    function CreerGrille (clef)
+    {
+	    clef = standard(clef);
+	    var grille  = '';
+	    for(var nbr = 0; nbr < clef.length; nbr++){
+		    ch= clef.charAt(nbr);
+		    if (grille.indexOf (ch) < 0) {
+			    grille += ch;
+		    }
+	    }
+	    for(var nbr = 0; nbr < alphabet.length; nbr++){
+		    ch= alphabet.charAt(nbr);
+		    if (grille.indexOf (ch) < 0) {
+			    grille += ch;
+		    }
+	    }
+	    return grille;
+    }
 
 
 function chiffrement_playfair() {
     $("#txt-dechiffrement").val(texte_en_clair);
     // clef = $("#txt-playfaircles").value;
-    // clair = $("#txt-chiffrement").value;
+    // clair = texte_en_clair;
 	// var matrice  = '';
     // matrice = CreerGrille(clef);
     // $("#m11").value = matrice.charAt(0) ; 
