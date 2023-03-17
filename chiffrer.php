@@ -65,7 +65,7 @@ include_once __DIR__ . '/view/header.php';
     </div>
   </div>
 </div>
-
+<script src="JS/chiffrement.js"></script>
 <?php
 include_once __DIR__ . '/view/footer.php';
 ?>

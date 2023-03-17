@@ -22,7 +22,7 @@
    
     </footer>
     
-    <script src="JS/chiffrement.js"></script>
+    
 </body>
 
 </html>

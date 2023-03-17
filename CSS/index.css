@@ -184,3 +184,21 @@ main {
     justify-content: center;
     margin: auto;
  }
+
+
+
+ /* bar chart */
+
+ .chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .chart-container {
+      width: 90%;
+      max-width: 1200px;
+    }
+  }
+  

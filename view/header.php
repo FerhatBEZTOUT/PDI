@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="IMG/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="CSS/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Chiffrer</title>
 
 </head>
