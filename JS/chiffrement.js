@@ -658,6 +658,70 @@ $(document).ready(function () {
       }
 
 
+      
+
+// Fonction qui supprime les doublons de lettres dans une chaine de caractéres
+function supprimer_doublons(chaine) {
+    let unique = '';
+    for (let i = 0; i < chaine.length; i++) {
+        if (unique.indexOf(chaine[i]) === -1) {
+            unique += chaine[i];
+        }
+    }
+    return unique;
+}
+
+
+function remplir_matrice_playfair(cle) {
+    // Supprimer les doublons de la clé 
+    // Exemple : "chiffrement" devient "chifremnt" 
+    cle_nettoyee = supprimer_doublons(cle);
+
+    longueur_text = cle_nettoyee.length;
+
+    // alphabet sans le W
+    alphabet_playfair = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"]
+
+    // init mat
+    mat = [[], [], [], [], []];
+
+    // compteur pour insérer la clé dans la matrice
+    cpt = 0;
+
+    i = 0;
+
+    while (i < 5 && cpt < longueur_text) {
+        j = 0;
+        while (j < 5 && cpt < longueur_text) {
+            // Ajout de la lettre à la matrice
+            mat[i][j] = cle_nettoyee[cpt];
+            // Supression de la lettre depuis l'alphabet_playfair
+            alphabet_playfair = alphabet_playfair.filter(item => item !== cle_nettoyee[cpt]);
+            cpt++;
+            j++;
+        }
+
+        // Si on a fini d'insérer la clé on sort de la boucle
+        if (cpt >= longueur_text) break;
+        i++;
+    }
+
+
+
+    // Compléter avec le reste de l'alphabet_playfair restant
+    while (i < 5) {
+        while (j < 5) {
+            // Extraction du premier élément du tableau et 
+            mat[i][j] = alphabet_playfair.shift();
+            j++;
+        }
+        i++;
+        j = 0;
+    }
+    
+    console.table(mat)
+}
+
 
 
     /* END OF SCRIPT */  
