@@ -50,7 +50,7 @@ $(document).ready(function () {
         val = $("#chiffrement").val();
 
         switch (val) {
-            case 'cesar': dechiffrement_cesar($("#cle-decryptage").text()[0]); break;
+            case 'cesar':   let K = $("#cle-decryptage").text(); dechiffrement_cesar(K[0]); break;
             case 'affine': dechiffrement_affine(); break;
             case 'playfair': dechiffrement_playfair(); break;
             case 'vigenere': dechiffrement_vigenere(); break;
@@ -98,15 +98,15 @@ $(document).ready(function () {
         $("#cle").html(block_cle);
 
         /* ajout du bar chart */
-        draw_bar_chart();
+        draw_bar_chart(frequence_lettres(texte_chiffre));
 
          /* décalage du barchart texte à gauche */
         $("#btn-left").click(function (e) {
             tab_freq = decaleTableauAGauche(tab_freq);
-            i++
-            if (i>25) i=i%26;
-            console.log(alphabet[i])
-            $("#cle-decryptage").text(alphabet[i]+' ('+i+')');
+            indice_alphabet++
+            if (indice_alphabet>25) indice_alphabet = indice_alphabet%26;
+         
+            $("#cle-decryptage").text(alphabet[indice_alphabet]+' ('+indice_alphabet+')');
             update_bar_chart(tab_freq);
 
         });
@@ -114,10 +114,10 @@ $(document).ready(function () {
         /* décalage du barchart texte à droite */
         $("#btn-right").click(function (e) {
             tab_freq = decaleTableauADroite(tab_freq);
-            i--
-            if (i<0) i+=26
-            console.log(alphabet[i])
-            $("#cle-decryptage").text(alphabet[i]+' ('+i+')');
+            indice_alphabet--
+            if (indice_alphabet<0) indice_alphabet+=26
+
+            $("#cle-decryptage").text(alphabet[indice_alphabet]+' ('+indice_alphabet+')');
             update_bar_chart(tab_freq);
         });
 
@@ -129,12 +129,27 @@ $(document).ready(function () {
 
         /* Mise à jour du bar chart à chaque nouveau texte */
         $("#txt-dechiffrement").keyup(function (e) {
-            i = 0
+            indice_alphabet = 0
             texte_chiffre = normaliserChaine($("#txt-dechiffrement").val().toUpperCase().split(" ").join("").trim());
             tab_freq = frequence_lettres(texte_chiffre);
             $("#cle-decryptage").text(alphabet[0]+' (0)');
             update_bar_chart(tab_freq);
     
+        });
+
+
+        // EventListener sur le scroll de la souris (même fonctionnement que les deux boutons left & right)
+        $('#myChart').on('mousewheel', function(event) {
+            event.preventDefault();
+        // Récupérer la direction du scroll
+        const direction = event.originalEvent.wheelDelta > 0 ? 'up' : 'down';
+        if (direction=="up") {
+            $("#btn-right").click();
+        } else {
+            $("#btn-left").click();
+        }
+        
+       
         });
     }
 
@@ -192,6 +207,7 @@ $(document).ready(function () {
         // Affichage du texte dans un text-area
 
         $("#txt-chiffrement").val(msg_en_clair);
+        $("#txt-dechiffrement").val(texte_chiffre);
     };
 
     function dechiffrement_affine() {
@@ -361,7 +377,7 @@ $(document).ready(function () {
     }
 
     /* Dessine un bar chart avec les fréquences de lettres du français et du texte inséré */
-    function draw_bar_chart() {
+    function draw_bar_chart(tab) {
         if (chart) chart.destroy();
         var ctx = document.getElementById('myChart').getContext('2d');
         chart = new Chart(ctx, {
@@ -380,7 +396,7 @@ $(document).ready(function () {
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1,
-                    data: tab_freq
+                    data: tab
                 }]
             },
             options: {
