@@ -1,12 +1,16 @@
 $(document).ready(function () {
     /* START OF SCRIPT */
 
+    // Utilisé pour décalage dans l'alphabet
+    indice_alphabet = 0
 
+    // Alphabet français
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
     // Tableau contnenant les valeurs possibles pour A de la clé du chiffrement d'affine
     const affine_A_values = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
 
-    /* Tableau de fréquences des lettres en français indicé par l'ordre de l'alphabet */
+    // Tableau de fréquences des lettres en français indicé par l'ordre de l'alphabet
     var tab_freq_fr = [0.0812, 0.0090, 0.0338, 0.0366, 0.1740,
         0.0106, 0.0147, 0.0055, 0.0753, 0.0031,
         0.0005, 0.0555, 0.0292, 0.0689, 0.0834,
@@ -46,7 +50,7 @@ $(document).ready(function () {
         val = $("#chiffrement").val();
 
         switch (val) {
-            case 'cesar': dechiffrement_cesar(); break;
+            case 'cesar': dechiffrement_cesar($("#cle-decryptage").text()[0]); break;
             case 'affine': dechiffrement_affine(); break;
             case 'playfair': dechiffrement_playfair(); break;
             case 'vigenere': dechiffrement_vigenere(); break;
@@ -56,12 +60,6 @@ $(document).ready(function () {
     });
 
 
-    $("#txt-dechiffrement").keyup(function (e) {
-        texte_chiffre = normaliserChaine($("#txt-dechiffrement").val().toUpperCase().split(" ").join("").trim());
-        tab_freq = frequence_lettres(texte_chiffre);
-        update_bar_chart(tab_freq);
-
-    });
 
     /* ------------ Fonctions pour le changement du bloc de la clé selon le chiffrement ------------*/
     function reset_input_cle() {
@@ -93,26 +91,50 @@ $(document).ready(function () {
         </button>
     </div>
     <div class="d-flex justify-content-center align-items-center p-2 ">
-        <span class="border border-warning border-2 my-1 w-50 text-center rounded-2 bg-dark text-light py-1" >Clé décryptage : <b id="cle-decrpytée"></b> </span>
+        <span class="border border-warning border-2 my-1 w-50 text-center rounded-2 bg-dark text-light py-1" >Clé décryptage : <b id="cle-decryptage"></b> </span>
     </div>`;
+        
+        /* Ajout du bloc decryptage cesar */
         $("#cle").html(block_cle);
+
+        /* ajout du bar chart */
         draw_bar_chart();
 
+         /* décalage du barchart texte à gauche */
         $("#btn-left").click(function (e) {
             tab_freq = decaleTableauAGauche(tab_freq);
-            
+            i++
+            if (i>25) i=i%26;
+            console.log(alphabet[i])
+            $("#cle-decryptage").text(alphabet[i]+' ('+i+')');
             update_bar_chart(tab_freq);
 
         });
 
+        /* décalage du barchart texte à droite */
         $("#btn-right").click(function (e) {
             tab_freq = decaleTableauADroite(tab_freq);
+            i--
+            if (i<0) i+=26
+            console.log(alphabet[i])
+            $("#cle-decryptage").text(alphabet[i]+' ('+i+')');
             update_bar_chart(tab_freq);
         });
 
         $("#btn-reset").click(function (e) {
+            /* simule nouveau texte */
             $("#txt-dechiffrement").keyup();
+           
+        });
 
+        /* Mise à jour du bar chart à chaque nouveau texte */
+        $("#txt-dechiffrement").keyup(function (e) {
+            i = 0
+            texte_chiffre = normaliserChaine($("#txt-dechiffrement").val().toUpperCase().split(" ").join("").trim());
+            tab_freq = frequence_lettres(texte_chiffre);
+            $("#cle-decryptage").text(alphabet[0]+' (0)');
+            update_bar_chart(tab_freq);
+    
         });
     }
 
@@ -120,8 +142,6 @@ $(document).ready(function () {
     function input_cle_affine() {
         
     }
-
-
 
     function input_cle_vigenere() {
         block_cle = '<h5 class="text-center">Choisir une clé K <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5>';
@@ -140,9 +160,9 @@ $(document).ready(function () {
 
     /* ---------------------- Fonctions de déchiffrements ---------------------- */
 
-    function dechiffrement_cesar() {
+    function dechiffrement_cesar(K) {
         // Récupérer clé cesar
-        K = $('#cle-cesar > li[selected-key]').text();
+        K = alphabet.indexOf(K);
 
         if (K == '') K = 0;
         else {
@@ -322,6 +342,7 @@ $(document).ready(function () {
 
     /* ======================================= Fonctions outils ======================================= */
 
+    /* Retourne un tableau indicé par l'ordre alphabetique contenant la fréquence de chaque lettre */
     function frequence_lettres(texte) {
         let longueur_text = texte.length;
         // tab de nombre d'occurence de chaque lettre (tab indicé par l'ordre de la lettre)
@@ -339,7 +360,7 @@ $(document).ready(function () {
         return tab_freq;
     }
 
-
+    /* Dessine un bar chart avec les fréquences de lettres du français et du texte inséré */
     function draw_bar_chart() {
         if (chart) chart.destroy();
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -379,7 +400,7 @@ $(document).ready(function () {
 
     }
 
-
+    /* Mise à jour du barchart "texte" */
     function update_bar_chart(new_tab_freq) {
         chart.data.datasets[1].data = new_tab_freq; // update the data for the "Texte" dataset
         chart.update(); // update the chart with the new data
@@ -420,6 +441,8 @@ $(document).ready(function () {
         }
         return tab;
     }
+
+
 
 
 
