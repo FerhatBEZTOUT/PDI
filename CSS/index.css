@@ -1,14 +1,16 @@
 body {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    display:flex;
-    min-height:100vh;
+    display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
+
 .logo>img {
-    opacity:0.8;
+    opacity: 0.8;
 }
+
 .logo>img:hover {
-    opacity: 1 ;
+    opacity: 1;
 }
 
 
@@ -18,7 +20,7 @@ body {
     color: rgb(77, 165, 219);
 }
 
-.navbar{
+.navbar {
     background-color: rgb(225, 232, 239) !important;
 }
 
@@ -27,6 +29,7 @@ body {
     font-weight: bold;
 
 }
+
 .navbar-nav>a:hover {
     color: rgb(17, 121, 218);
 }
@@ -35,10 +38,11 @@ body {
 #lienUniv {
     color: white;
 }
+
 footer {
     background-color: rgb(58, 151, 238);
-    color:white;
-    margin-top: auto;    
+    color: white;
+    margin-top: auto;
 }
 
 
@@ -48,7 +52,7 @@ li {
 
 
 .error {
-    color : red;
+    color: red;
 }
 
 .mon-bg {
@@ -59,42 +63,44 @@ li {
     display: none;
 }
 
-.nav-item{
-    position : relative;
+.nav-item {
+    position: relative;
 }
+
 .nav-item:hover .sub-menu {
-    display :block;
+    display: block;
 }
 
 .sub-menu {
-    position : absolute;
-    top : 100%;
-    left : 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
     background-color: white;
-    padding : 10px;
+    padding: 10px;
     font-size: 14px;
     list-style: none;
     border-radius: 10px;
 }
+
 .sub-menu li {
-    border-bottom : 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 .sub-menu li a {
-    color : black;
+    color: black;
     text-decoration: none;
 }
 
 
 
 
-html{
+html {
     overflow-x: hidden;
 }
 
 
-.cle-number > li {
-    width:25px;
+.cle-number>li {
+    width: 25px;
     height: 30px;
     background-color: rgb(52, 48, 48);
     color: white;
@@ -106,10 +112,10 @@ html{
     cursor: pointer;
 }
 
-.cle-number > li[selected-key] {
+.cle-number>li[selected-key] {
     background-color: rgb(255, 255, 255);
     color: rgb(69, 118, 192);
-    border : 1px solid rgb(52, 48, 48);
+    border: 1px solid rgb(52, 48, 48);
 }
 
 
@@ -131,74 +137,98 @@ html{
 
 /* cours.php */
 .chapter-nav {
-  background-color: #f2f2f2;
-  border-right: 1px solid #ccc;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  padding: 20px;
-  position: fixed;
-  top : 80px;
-  left: 0;
-  bottom: 80px;
-  width: 200px;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    padding: 20px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    bottom: 80px;
+    width: 200px;
 }
-  
+
 .chapter-nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-  
+
 .chapter-nav ul li {
     margin-bottom: 10px;
 }
-  
+
 .chapter-nav a {
     color: #333;
     text-decoration: none;
 }
-  
+
 .chapter-nav a:hover {
     color: #000;
 }
-  
+
 /* Styles pour le contenu principal */
 main {
     box-sizing: border-box;
     padding: 20px;
     flex-grow: 1;
-    margin-left: 200px; /* Ajout de cette propriété pour décaler le contenu principal */
+    margin-left: 200px;
+    /* Ajout de cette propriété pour décaler le contenu principal */
 }
-.image-graphique{
-   display : block;
-   margin: auto;
+
+.image-graphique {
+    display: block;
+    margin: auto;
 }
-.image-vigenere{
-    display : flex;
+
+.image-vigenere {
+    display: flex;
     justify-content: center;
     margin: auto;
- }
+}
 
- .image-carre{
-    display : flex;
+.image-carre {
+    display: flex;
     justify-content: center;
     margin: auto;
- }
+}
 
 
 
- /* bar chart */
+/* bar chart */
 
- .chart-container {
+.chart-container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .chart-container {
-      width: 90%;
-      max-width: 1200px;
+        width: 90%;
+        max-width: 1200px;
     }
-  }
-  
+}
+
+
+
+#cle-decryptage>span[selected-letter] {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#cle-decryptage>span {
+
+    cursor: pointer;
+}
+
+
+#cle-decryptage>span:hover {
+    color: #ffc107;
+}
+
+.indice-coinci {
+    background-color: rgba(54 255 0) !important;
+    color:#333 !important;
+}

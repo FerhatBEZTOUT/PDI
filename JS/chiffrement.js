@@ -659,7 +659,7 @@ $(document).ready(function () {
         chaine = chaine.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
         // remove symbols, apostrophes, and numbers
-        chaine = chaine.replace(/[^\w\s]|[\d]/gi, "");
+        chaine = chaine.replace(/[^\w\s]|[\d]|_/gi, "");
 
         return chaine;
     }
