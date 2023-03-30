@@ -117,21 +117,14 @@ include_once __DIR__ . '/view/header.php';
 
     <h4> Chiffre de subsitution polygrammique </h4>
     <p> Les lettres ne sont pas remplacées une par une, mais par blocs de plusieurs (deux ou trois généralement).
-        Par exemple, dans une subsitution bigrammique, deux lettres du texte clair sont transformées en deux lettre du cryptogramme. </br> </p>
-</br>
+        Par exemple, dans une subsitution bigrammique, deux lettres du texte clair sont transformées en deux lettre du cryptogramme. </p>
+
 </br>
     <section id="Chiffrement_César">
     <h3> Chiffrement de César </h3>
     <p> Le chiffrement de César est la méthode de cryptographie la plus ancienne communément admise par l'histoire.
       Il consiste en une substitution mono-alphabétique, où la substitution est définie par un décalage de lettre.
       L'algorithme de chiffrement consiste à décaler les lettres de l'alphabet, selon la clé de chiffrement k qui représente le nombre de lettres à déclaer </br> </p>
-
-          <section id="Chiffrement_César">
-            <h3> Chiffrement de César </h3>
-            <p> Le chiffrement de César est la méthode de cryptographie la plus ancienne communément admise par l'histoire.
-              Il consiste en une substitution mono-alphabétique, où la substitution est définie par un décalage de lettre.
-              L'algorithme de chiffrement consiste à décaler les lettres de l'alphabet, selon la clé de chiffrement k qui représente le nombre de lettres à déclaer </br> </p>
-
             <h4> Formellement </h4>
             <ul>
               <li><b> Chiffrement : </b> C = (L + K) mod 26 </li>
@@ -143,7 +136,7 @@ include_once __DIR__ . '/view/header.php';
                 <b> Exemple : </b> On veut chiffrer la lettre D avec une clé K = 4 <br>
                           C = (ord(D) + K) mod 26 = (3 + 4) mod 26 = 7 <br>
                           C = H
-                          
+</section>        
 
     <h5> Méthode d'Al-Kindi </h5>
     <p> La méthode d'Al-Kindi est basée sur une analyse des fréquences d'apparition de chaque lettre dans une langue.
@@ -158,7 +151,7 @@ include_once __DIR__ . '/view/header.php';
       et implique que l'attaquant connaisse la langue d'origine du message crypté. </br> </p>
     <p> Le chiffrement de César est très peu sûr, puisqu'il est très facile de tester de façon exhaustive toutes les possibilités. 
       Pourant ,en raison de sa grande simplicité, le code de César fut encore employé par les officiers sudistes pendant la guerre de Sécession, et même par l'armée russe en 1915. </p>
-</br>
+
 </br>
     <section id ="chiffrement_affine">
       <h3> Chiffrement d'Affine </h3>
@@ -212,36 +205,90 @@ include_once __DIR__ . '/view/header.php';
       <h4> Cryptanalyse du chiffrement de Vigenère </h4>
       <p> La première étape de cette méthode de déchiffrement consiste à determiner la taille de la clé de chiffrement.
         L'opération qui permet de la déterminer porte le nom du test de Kasiski, du nom de son inventeur. Il s'appuie sur les répétitions du texte chiffré. </p>
-
       <img class="image-carre" src="https://fr.scoutwiki.org/images/0/07/Vigenere.gif" width = 30% height= 30%>
+</br>
+      <h3> Chiffrement de Playfair </h3>
+      <p> Le chiffrement de Playfaire est un chiffrement polugraùùoqie, il a été popularisé par <b> Lyon Playfair </b> mais il a été inventé par <b> Sir Charles Wheatstone </b> (1854)
+      un des pionniers du télégraphe électrique. Dans le chiffrement de Playfair, on dispose les 25 lettres de l'alphabet (W exclu, car inutile, on utilise V à la place) dans une grille de 5x5.
+      La variante anglaise consiste à garder le W et à fusionner I et J.</br>
+        On remplit ensuite la matrice par les lettres du mot clé. Si une lettre se répète, on l'ecrit qu'une seule fois. Puis on complète par les lettres restantes de l'alphabet. </p>
 
+      <h4> Méthode de chiffrement </h4>
+      <p> On chiffre le texte par groupes de deux lettres (des bigrammes) en appliquant les règles suivantes : </p>
+        <ol>
+          <li> Si les deux lettres sont sur les coins d'un rectangle, alors les lettres chiffrées sont sur les deux autres coins.
+            Autrement dit, chaque groupe de deux lettres est codé par la lettre à l'intersection de la ligne de la première et la colonne de la deuxième. Puis à l'intersection
+            de la ligne de la deuxième et de la colonne de la première. </li>
+          <li> Si deux lettres sont sur la même ligne, on prend les deux lettres qui les suivent immédiatement à leur droite</li>
+          <li> Si deux lettres sont sur la même colonne, on prend les deux lettres qui les suivent immédiatement en dessous. </li>
+          <li> Si le bigramme est composé de deux fois la même lettre, on insère une nulle (usuellement le X) entre les deux pour éliminer ce doublon ; </li>
+          <li> S'il y a une seule lettre, on complète par la lettre "X" </li>
+      </ol>
+     <h4> Méthode de déchiffrement </h4>
+     <p> Pour le déchiffrement, on applique  les règles de chiffrement à l'envers : </p>
+      <ol>
+        <li> Si les deux lettres sont sur les coins d'un rectangle. Chaque groupe de deux lettres est 
+          codé par la lettre à l'intersection de la ligne de la première et la colonne de la deuxième puis à l'intersection de la ligne 
+          de la deuxième et de la colonne de la première </li>
+        <li> Si deux lettres sont sur la même ligne, on prend les deux lettres qui les suivent immédiatement à leur gauche </li>
+        <li> Si deux lettres sont sur la même colonne, on prend les deux lettres qui les suivent immédiatement en dessus </li>
+      </ol>
+     <h4> Cryptanalyse du chiffrement de Playfair </h4>
+     <p> Si le cryptogramme est assez long, on peut l'attaquer en regardant quels bigrammes apparaissent le plus souvent
+      et en supposant qu'ils représentent les bigrammes les plus courants. Il faut ensuite essayer de reconstituer la grille de chiffrement. </br>
+      Comme la plupart des chiffrements anciens, le chiffrement de Playfair peut facilement être cassé si l'on dispose de suffisament d'echantillons.
+      Obtenir la clé est relativement rapide si l'on a connaissance à la fois du texte chiffré et du texte clair (attaque à texte clair connu). </p>
+    
+      <h3> Chiffrement de Hill </h3>
+      <p> Il consiste à chiffre le message en substituant les lettrs du message, non plus lettre par lettre,
+        mais par groupe de lettres. Il permet ainsi de rendre plus difficile de le casser par observation des fréquences. </br>
+        C'est un chiffrement à base de l'algèbre matricielle, la substitution se fait à l'aide de m équations linéaires.
+        L'algorithme remplace m lettre successives par m lettre chiffrées. </p>
+      <h4> Chiffrement  </h4>
+      <p> Les lettres sont remplacées par leur rang suivant l'alphabet. On choisit une clé K sous forme d'une matrice de 2x2 telle que PGCD(det(K),26) = 1
+        Chaque paire de lettres Lₖ et Lₖ₊₁ du message clair sont remplacées par Cₖ et Cₖ₊₁ </p>
+       <!-- Ajout formule Hill -->
+
+      <h4> Déchiffrement </h4>
+      <p> Pour déchiffrer, le principe est le même que pour le chiffrement : on prend les lettres deux par deux,puis on les multiplie par une matrice.
+        Cette matrice doit être l'inverse de la matrice de chiffrement (modulo 26). </p>
+      <!-- Ajout formule déchiffrement Hill --> 
+
+
+      <h4> Description de l'algorithme d'Euclide étendu (les équations diophantiennes) </h4>
+      <ul>
+        <li> On commence par descendre avec l'algorithme d'Euclide pour le PGCD, en notant les quotients dans la colonne de gauche
+          et les restes successifs dans la seconde colonne. Pour deux élements successifs descendants, on calcul le troisième par division : a divisé par b -> q reste c. <li>
+        <li> Le processus s'arrête lorsqu'on obtient un reste nul (0), qui permet d'écrire dans la colonne 3, en face des deux derniers nombres obtenus, les nombres 0 et 1, dont les produits croisés 
+          avec la deuxième colonne ont une différence de 1. On peut les lire comme des déterminants valant alternativement 1 et -1. </li>
+        <li> On remonte ensuite en construisant la troisième colonne avec l'égalité caractéristique de la division euclidienne : x' = y' * q + z', parallèlement à la première colonne.
+          On note des traits obliques alternés pour indiquer dans quel sens la soustraction donne 1. </li>
+        <li> A chaque ligne, on a par construction une solution d'une équation de la forme ay - bx ± 1, avec une alternance des signes.
+          La ligne d'en haut fournit ainsi la solution de l'équation diophantienne initiale, les lignes suivantes celle d'équations diophantiennes réduites. </li>
+      </ul>
+
+      <h4> Cryptanalyse </h4>
+      <p> Bien qu'il soit plus dur à casser que le chiffrement d'Affine, le chiffrement de Hill est loin de garantir une sécurité totale.
+        On peut lui aussi l'attaquer en faisant une analyse de fréquences, mais cette fois sur les bigrammes. Les plus fréquents de la langues française sont :
+        "es","en","ou","de","nt","te","on". En relevant les bigrammes apparaissant le plus dans un texte chiffré, on pourra
+        supposer qu'ils représentent un de ceux-là. On pourra ensuite compléter cette démarche par une attaque avec mot probable : 
+          <ul>
+              <li> Essayer de trouver quelques caractéristiques de quelques mots du texte chiffré. </li>
+              <li> Regarder dans les mots de la langue originale quels sont les mots qui ont ces caractéristiques. </li>
+              <li> Remplacer, observer et analyser </li>
+          </ul>
+      
   <!-- Chapitre 3 -->
   <section id="chapitre3">
     <h2>Chapitre 3 : Le chiffrement par transposition</h2>
     <p>Le chiffrement par transposition est une autre technique de chiffrement qui consiste à permuter les lettres du message. Nous allons l'étudier en détail dans ce chapitre.</p>
   </section>
 
-          <h4> Cryptanalyse du chiffrement de César </h4>
-          <p> Cette méthode étant assez primaire, afin de décrypter, il suffit de tester les 26 sortes de déclages possibles.
-            Cependant, cela prend du temps. On peut toutefois se servir de la méthode d'<b> Al-Kindi </b>, très efficace pour ce genre de cryptographie. </p>
-
-          <h5> Méthode d'Al-Kindi </h5>
-          <p> La méthode d'Al-Kindi est basée sur une analyse des fréquences d'apparition de chaque lettre dans une langue.
-            Nous pouvons en dresser un histogramme, comme le montre la figure ci dessous : </p>
-          <div>
-            <img class="image-graphique" src="https://image1.slideserve.com/2862540/fr-quences-des-lettres-dans-diff-rentes-langues-l.jpg" width=50% height=50%>
-          </div>
-          <!-- Chapitre 3 -->
-          <section id="chapitre3">
-            <h2>Chapitre 3 : Le chiffrement par transposition</h2>
-            <p>Le chiffrement par transposition est une autre technique de chiffrement qui consiste à permuter les lettres du message. Nous allons l'étudier en détail dans ce chapitre.</p>
-          </section>
-
-          <!-- Chapitre 4 -->
-          <section id="chapitre4">
-            <h2>Chapitre 4 : Les chiffrements modernes</h2>
-            <p>Les chiffrements modernes utilisent des algorithmes plus complexes pour garantir une sécurité maximale. Nous allons étudier les principaux d'entre eux dans ce chapitre.</p>
-          </section>
+ <!-- Chapitre 4 -->
+  <section id="chapitre4">
+     <h2>Chapitre 4 : Les chiffrements modernes</h2>
+     <p>Les chiffrements modernes utilisent des algorithmes plus complexes pour garantir une sécurité maximale. Nous allons étudier les principaux d'entre eux dans ce chapitre.</p>
+  </section>
 </main>
 
 <?php
