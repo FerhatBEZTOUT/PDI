@@ -17,12 +17,10 @@ include_once __DIR__ . '/view/header.php';
     <div></div>
 
     <!-- Bloc clé -->
-    <div id="cle" class="row col-12 col-md-6 mb-3">
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
-        </div>
-
+    <div id="cle" class="mb-3">
+    
     </div>
+
 
     <div></div>
 
