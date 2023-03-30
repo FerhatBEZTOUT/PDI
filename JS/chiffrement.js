@@ -382,34 +382,7 @@ $(document).ready(function () {
 
     function chiffrement_hill(key) {
 
-        let cipherText = '';
-
-        // Split the Text into blocks and encrypt each block
-        for (let i = 0; i < texte_en_clair.length; i += keySize) {
-            const block = texte_en_clair.slice(i, i + keySize);
-            let blockMatrix = [];
-
-            // Create a matrix from the block
-            for (let j = 0; j < block.length; j++) {
-                blockMatrix.push(block.charCodeAt(j) - 65);
-            }
-
-            // Multiply the key matrix with the block matrix
-            let encryptedMatrix = new Array(keySize).fill(0);
-            for (let j = 0; j < keySize; j++) {
-                for (let k = 0; k < keySize; k++) {
-                    encryptedMatrix[j] += key[j * keySize + k] * blockMatrix[k];
-                }
-                encryptedMatrix[j] = encryptedMatrix[j] % 26;
-            }
-
-            // Convert the encrypted matrix back into characters
-            for (let j = 0; j < encryptedMatrix.length; j++) {
-                cipherText += String.fromCharCode(encryptedMatrix[j] + 65);
-            }
-        }
-
-        return cipherText;
+        
     }
 
 
