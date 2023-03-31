@@ -5,7 +5,18 @@
 <main>
 <h1>Exercice sur le chiffrement de césar : </h1>
     <section>
-      <h2>Exercice 1</h2>
+      <h2> Exercice 1 </h2>
+      <form id="quiz" name="quiz">
+	      	<p>Quel est le principe du chiffrement de César ?</p>
+		      <label><input type="radio" name="e1" value="a"> Additionner une clé secrète à chaque lettre du message</label><br>
+		      <label><input type="radio" name="e1" value="b"> Remplacer chaque lettre du message par la lettre suivante dans l'alphabet</label><br>
+		      <label><input type="radio" name="e1" value="c"> Remplacer chaque lettre du message par la lettre située trois places plus loin dans l'alphabet</label><br>
+		      <label><input type="radio" name="e1" value="d"> Additionner une clé publique à chaque lettre du message</label><br>
+	      	<button type="button" onclick="verif()">Valider</button>
+		<p id="result"></p>
+	</form>
+    <section>
+      <h2>Exercice 2</h2>
       <p>Chiffrez le message suivant en utilisant le chiffrement de César avec un décalage de 3 :</p>
       <p>CECI EST UN MESSAGE À CHIFFRER</p>
       <form onsubmit="verifierReponse1(event)">
