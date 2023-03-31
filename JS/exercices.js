@@ -3,7 +3,7 @@ $(document).ready(function () {
   function checkAnswers() {
     var q1 = document.forms["quiz"]["q1"].value;
     var result = document.getElementById("result");
-    if (q1 == "c") {
+    if (e1 == "c") {
       result.innerHTML = "Bonne réponse !";
       result.style.color = "green";
     } else {
