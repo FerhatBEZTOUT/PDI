@@ -598,7 +598,7 @@ $(document).ready(function (){
                 clair += chiffre.charAt(i+j);
             }
         }
-        $("#txt-chiffrement").val(clair);       
+        $("#txt-chiffrement").val(k);       
     };
 
     function dechiffrement_hill() {
