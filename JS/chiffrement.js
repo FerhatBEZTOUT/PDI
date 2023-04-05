@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function (){
     /* START OF SCRIPT */
 
 
@@ -269,21 +269,25 @@ $(document).ready(function () {
         var grille = '';
         for (var nbr = 0; nbr < clef.length; nbr++) {
             ch = clef.charAt(nbr);
-            if (grille.indexOf(ch) < 0) {
-                grille += ch;
+            if (ch!='W'){
+                if (grille.indexOf(ch) < 0 ) {
+                    grille += ch;
+                }
             }
         }
         for (var nbr = 0; nbr < alphabet.length; nbr++) {
             ch = alphabet.charAt(nbr);
-            if (grille.indexOf(ch) < 0) {
-                grille += ch;
+            if (ch!='W'){
+                if (grille.indexOf(ch) < 0 && grille.indexOf(ch)!='W') {
+                    grille += ch;
+                }
             }
         }
         return grille;
     }
 
 
-    function chiffrement_playfair() {
+    function  chiffrement_playfair() {
         clef = $("#txt-playfaircles").val();
         var clair = texte_en_clair;
         var matrice = '';
