@@ -584,16 +584,20 @@ $(document).ready(function (){
     };
 
     function dechiffrement_scytale() {
-        function Decoder(chiffre,largeur,clair) {
-            k=parseInt(largeur.value);
-            if (k<1 || k>20) {k=3;largeur.value="3"};    
-            clair.value = "";
-            for(var i = 0; i < k; i++) {
-              for(var j = 0; j < chiffre.value.length; j=j+k) {
-                      clair.value += chiffre.value.charAt(i+j);
-                      }
-              }
-          }
+        largeur = $("#txt-scytale").val();
+        chiffre = texte_chiffre;
+        var clair = "";
+        k=parseInt(largeur);
+        if (k<1 || k>20) {
+            k=3;
+            largeur.val("3");
+        }    
+        for(var i = 0; i < k; i++) {
+            for(var j = 0; j < chiffre.length; j=j+k) {
+                clair += chiffre.charAt(i+j);
+            }
+        }
+        $("#txt-chiffrement").val(clair);     
     };
 
     function dechiffrement_hill() {
