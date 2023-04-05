@@ -283,7 +283,7 @@ $(document).ready(function (){
     }
 
 
-    function chiffrement_playfair() {
+    function  chiffrement_playfair() {
         clef = $("#txt-playfaircles").val();
         var clair = texte_en_clair;
         var matrice = '';
