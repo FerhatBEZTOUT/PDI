@@ -592,9 +592,10 @@ $(document).ready(function (){
             k=3;
             largeur.val("3");
         }    
+        m=chiffre.val();
         for(var i = 0; i < k; i++) {
-            for(var j = 0; j < chiffre.value.length; j=j+k) {
-                clair.value += chiffre.value.charAt(i+j);
+            for(var j = 0; j < m.length; j=j+k) {
+                clair += chiffre.charAt(i+j);
             }
         }
         $("#txt-chiffrement").val(clair);       
