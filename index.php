@@ -13,7 +13,7 @@ include_once __DIR__ . '/view/header.php';
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Chiffrement & Déchiffrement</h5>
                 <p class="card-text">Découvrez comment chiffrer et déchiffrer des messages en utilisant différentes techniques.</p>
-                <a href="#" class="btn btn-primary align-self-end">Chiffrer/Déchiffrer</a>
+                <a href="./chiffrer.php" class="btn btn-primary align-self-end">Chiffrer/Déchiffrer</a>
             </div>
         </div>
 
@@ -23,7 +23,7 @@ include_once __DIR__ . '/view/header.php';
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Décryptage</h5>
                 <p class="card-text">Apprenez à décrypter des messages cryptés en utilisant différentes méthodes d'analyse cryptographique.</p>
-                <a href="#" class="btn btn-primary align-self-end">Décrypter</a>
+                <a href="./decrypter.php" class="btn btn-primary align-self-end">Décrypter</a>
             </div>
         </div>
 
@@ -33,7 +33,7 @@ include_once __DIR__ . '/view/header.php';
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Cours</h5>
                 <p class="card-text">Accédez à nos cours complets pour apprendre les bases de la cryptographie et ses applications.</p>
-                <a href="#" class="btn btn-primary align-self-end">Consulter</a>
+                <a href="./cours.php" class="btn btn-primary align-self-end">Consulter</a>
             </div>
         </div>
 
@@ -44,7 +44,7 @@ include_once __DIR__ . '/view/header.php';
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Exercices</h5>
                 <p class="card-text">Entraînez-vous à chiffrer, déchiffrer et décrypter des messages cryptés en résolvant nos exercices interactifs.</p>
-                <a href="#" class="btn btn-primary align-self-end">S'exercer</a>
+                <a href="./exercices.php" class="btn btn-primary align-self-end">S'exercer</a>
             </div>
         </div>
     </div>
