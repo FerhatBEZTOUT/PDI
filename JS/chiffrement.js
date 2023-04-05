@@ -598,7 +598,7 @@ $(document).ready(function (){
                 clair += chiffre.charAt(i+j);
             }
         }
-        $("#txt-chiffrement").val(k);       
+        $("#txt-chiffrement").val("sdas");       
     };
 
     function dechiffrement_hill() {
