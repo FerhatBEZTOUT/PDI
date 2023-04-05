@@ -9,30 +9,30 @@ include_once __DIR__ . '/view/header.php';
 <div class="container">
     <div class="row justify-content-evenly align-items-stretch my-3">
         <div class="card col-12 col-md-4" style="width: 18rem;">
-            <img src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" class="card-img-top" alt="...">
+            <img src="./IMG/chiffrement-logo.webp" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Chiffrement & Déchiffrement</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Découvrez comment chiffrer et déchiffrer des messages en utilisant différentes techniques.</p>
                 <a href="#" class="btn btn-primary align-self-end">Chiffrer/Déchiffrer</a>
             </div>
         </div>
 
 
         <div class="card col-12 col-md-4" style="width: 18rem;">
-            <img src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" class="card-img-top" alt="...">
+            <img src="./IMG/cryptanalyse.gif" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Décryptage</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Apprenez à décrypter des messages cryptés en utilisant différentes méthodes d'analyse cryptographique.</p>
                 <a href="#" class="btn btn-primary align-self-end">Décrypter</a>
             </div>
         </div>
 
 
         <div class="card col-12 col-md-4" style="width: 18rem;">
-            <img src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" class="card-img-top" alt="...">
+            <img src="./IMG/cours.jpg" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Cours</h5>
-                <p class="card-text">Some quickrd's content.</p>
+                <p class="card-text">Accédez à nos cours complets pour apprendre les bases de la cryptographie et ses applications.</p>
                 <a href="#" class="btn btn-primary align-self-end">Consulter</a>
             </div>
         </div>
@@ -40,10 +40,10 @@ include_once __DIR__ . '/view/header.php';
 
 
         <div class="card col-12 col-md-4" style="width: 18rem;">
-            <img src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" class="card-img-top" alt="...">
+            <img src="./IMG/exercice.png" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Exercices</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Entraînez-vous à chiffrer, déchiffrer et décrypter des messages cryptés en résolvant nos exercices interactifs.</p>
                 <a href="#" class="btn btn-primary align-self-end">S'exercer</a>
             </div>
         </div>
