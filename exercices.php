@@ -1,7 +1,7 @@
 <?php 
     include_once __DIR__.'/view/header.php';
 ?>
-<script src="JS/exercices.js"></script>
+
 <main>
 <h1>Exercice sur le chiffrement de césar : </h1>
     <section>
@@ -53,7 +53,7 @@
 
 
 </main>
-
+<script src="./JS/exercices.js"></script>
 
 <?php 
 include_once __DIR__.'/view/footer.php';
