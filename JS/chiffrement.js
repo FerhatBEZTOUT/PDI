@@ -269,13 +269,13 @@ $(document).ready(function (){
         var grille = '';
         for (var nbr = 0; nbr < clef.length; nbr++) {
             ch = clef.charAt(nbr);
-            if (grille.indexOf(ch) < 0) {
+            if (grille.indexOf(ch) < 0 && grille.indexOf(ch)!='W') {
                 grille += ch;
             }
         }
         for (var nbr = 0; nbr < alphabet.length; nbr++) {
             ch = alphabet.charAt(nbr);
-            if (grille.indexOf(ch) < 0) {
+            if (grille.indexOf(ch) < 0 && grille.indexOf(ch)!='W') {
                 grille += ch;
             }
         }
