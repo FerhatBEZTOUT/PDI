@@ -586,19 +586,18 @@ $(document).ready(function (){
     function dechiffrement_scytale() {
         largeur = $("#txt-scytale").val();
         chiffre = texte_chiffre;
-        clair = "";
-        k=parseInt(largeur.val());
+        var clair = "";
+        k=parseInt(largeur);
         if (k<1 || k>20) {
             k=3;
             largeur.val("3");
         }    
-        m=chiffre.val();
         for(var i = 0; i < k; i++) {
-            for(var j = 0; j < m.length; j=j+k) {
+            for(var j = 0; j < chiffre.length; j=j+k) {
                 clair += chiffre.charAt(i+j);
             }
         }
-        $("#txt-chiffrement").val("sdas");       
+        $("#txt-chiffrement").val(clair);     
     };
 
     function dechiffrement_hill() {
