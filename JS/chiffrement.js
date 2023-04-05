@@ -383,7 +383,20 @@ $(document).ready(function (){
     };
 
     function chiffrement_scytale() {
-
+        var chiffre="";
+        var largeur = $("#txt-scytale").val();
+        var clair = texte_en_clair;
+        k=parseInt(largeur.value);
+        if (k<1 || k>20) {k=3; largeur.value="3"};
+        mess=clair.value;
+        while (mess.length%k != 0) {mess += ' '};
+        m=mess.length/k;
+        for(var i = 0; i < m; i++) {
+            for(var j = 0; j < mess.length; j=j+m) {
+                chiffre += mess.charAt(i+j);
+            }
+        }
+        $("#txt-dechiffrement").val(chiffre);
     };
 
 
@@ -568,7 +581,16 @@ $(document).ready(function (){
     };
 
     function dechiffrement_scytale() {
-
+        function Decoder(chiffre,largeur,clair) {
+            k=parseInt(largeur.value);
+            if (k<1 || k>20) {k=3;largeur.value="3"};    
+            clair.value = "";
+            for(var i = 0; i < k; i++) {
+              for(var j = 0; j < chiffre.value.length; j=j+k) {
+                      clair.value += chiffre.value.charAt(i+j);
+                      }
+              }
+          }
     };
 
     function dechiffrement_hill() {
