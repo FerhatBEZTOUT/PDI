@@ -132,7 +132,7 @@ $(document).ready(function (){
 
             const clickedItemIndex = $(this).index();
 
-            $('#cle-affine-b > li').eq(clickedItemIndex).attr('selected-key', '');
+            $('#cle-affine-b > li').eq(clickedItemIndex).attr('selected-key', '');  
         });
     }
 
