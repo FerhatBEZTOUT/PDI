@@ -167,7 +167,7 @@ $(document).ready(function (){
 
     function input_cle_scytale() {
         block_cle = '<tr>';
-        block_cle += '<td align="CENTER"><h5>Diametre(1-20)<a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="scytale" id="txt-scytale" rows="1" cols="60" wrap="virtual">1</textarea></td>';
+        block_cle += '<td align="CENTER"><h5>Diametre(1-20)<a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="scytale" id="txt-scytale" rows="1" cols="30" wrap="virtual">1</textarea></td>';
         block_cle += '</tr>';
         $("#cle").html(block_cle);
     }
