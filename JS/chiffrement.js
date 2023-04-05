@@ -386,9 +386,12 @@ $(document).ready(function (){
         var chiffre="";
         var largeur = $("#txt-scytale").val();
         var clair = texte_en_clair;
-        k=parseInt(largeur.value);
-        if (k<1 || k>20) {k=3; largeur.value="3"};
-        mess=clair.value;
+        k=parseInt(largeur);
+        if (k<1 || k>20) {
+            k=3; 
+            largeur.val("3");
+        }
+        mess=clair;
         while (mess.length%k != 0) {mess += ' '};
         m=mess.length/k;
         for(var i = 0; i < m; i++) {
