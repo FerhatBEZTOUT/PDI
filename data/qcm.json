@@ -7,7 +7,7 @@
                 "L'art de la sculpture",
                 "La science de la communication sécurisée"
             ],
-            "answer": 0
+            "answer": 2
         },
         {
             "question": "Quel est le principe de base de la cryptographie symétrique ?",
@@ -16,7 +16,7 @@
                 "L'utilisation d'une clé unique pour chiffrer et déchiffrer des messages",
                 "L'utilisation d'un algorithme complexe pour chiffrer des messages"
             ],
-            "answer": 0
+            "answer": 1
         },
         {
             "question": "Qu'est-ce qu'une attaque par force brute ?",
@@ -25,7 +25,7 @@
                 "Une méthode d'attaque qui consiste à espionner les communications",
                 "Une méthode d'attaque qui consiste à essayer toutes les clés possibles jusqu'à trouver la bonne"
             ],
-            "answer": 0
+            "answer": 2
         },
         {
             "question": "Qu'est-ce que la cryptographie asymétrique ?",
@@ -34,16 +34,16 @@
                 "L'utilisation de deux clés différentes pour chiffrer et déchiffrer des messages",
                 "L'utilisation d'un algorithme complexe pour chiffrer des messages"
             ],
-            "answer": 0
+            "answer": 1
         },
         {
             "question": "Qu'est-ce qu'une signature électronique ?",
             "options": [
-                "Une méthode permettant de garantir l'authenticité et l'intégrité d'un document électronique",
                 "Une méthode permettant de chiffrer un document électronique",
-                "Une méthode permettant de déchiffrer un document électronique"
+                "Une méthode permettant de déchiffrer un document électronique",
+                "Une méthode permettant de garantir l'authenticité et l'intégrité d'un document électronique"
             ],
-            "answer": 0
+            "answer": 2
         },
         {
             "question": "Quel est l'avantage de la cryptographie asymétrique par rapport à la cryptographie symétrique ?",
@@ -52,31 +52,32 @@
                 "Elle permet l'échange de clés de manière sécurisée",
                 "Elle est plus simple à implémenter"
             ],
-            "answer": 0
+            "answer": 1
         },
         {
             "question": "Qu'est-ce qu'un certificat numérique ?",
             "options": [
-                "Un document électronique garantissant l'authenticité et l'intégrité d'un site web",
+
                 "Un fichier de configuration réseau",
+                "Un document électronique garantissant l'authenticité et l'intégrité d'un site web",
                 "Une clé secrète utilisée pour chiffrer des messages"
             ],
-            "answer": 0
+            "answer": 1
         },
         {
             "question": "Qu'est-ce que le hachage cryptographique ?",
             "options": [
-                "Une fonction qui prend en entrée des données de taille variable et produit une empreinte numérique fixe",
                 "Une méthode d'attaque qui consiste à deviner une clé",
-                "Une méthode de chiffrement qui utilise une seule clé"
+                "Une méthode de chiffrement qui utilise une seule clé",
+                "Une fonction qui prend en entrée des données de taille variable et produit une empreinte numérique fixe"
             ],
-            "answer": 0
+            "answer": 2
         },
         {
             "question": "Qu'est-ce que l'authentification à deux facteurs ?",
             "options": [
-                "Une méthode d'authentification qui utilise deux types d'informations pour vérifier l'identité de l'utilisateur",
                 "Une méthode d'authentification qui utilise deux clés différentes",
+                "Une méthode d'authentification qui utilise deux types d'informations pour vérifier l'identité de l'utilisateur",
                 "Une méthode d'authentification qui utilise une clé secrète"
             ],
             "answer": 0
