@@ -82,9 +82,6 @@ function verifierReponse1(event) {
   }
 
 
-
-
-
   fetch('./data/qcm.json')
   .then(response => response.json())
   .then(data => {
@@ -214,6 +211,8 @@ function verifierReponse1(event) {
   })
   .catch(error => console.error(error));
 
+  // Test 
+  
 
 
   // End of script
