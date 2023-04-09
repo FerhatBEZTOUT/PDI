@@ -174,7 +174,9 @@ function verifierReponse1(event) {
               <input type="text" class="form-control" id="answer-exo1-${index}">
             </div>
             <button class="btn btn-primary mt-3" id="check-answer-exo1-${index}">Vérifier la réponse</button>
+            <button class="btn btn-secondary mt-3" id="show-answer-exo1-${index}">Voir la réponse</button>
             <div class="mt-2" id="answer-result-exo1-${index}"></div>
+            <div class="mt-2" id="spoiled-answer-exo1-${index}" style="display:none">${chiffrement.answer}</div>
           </div>
         </div>
       `;
@@ -184,6 +186,7 @@ function verifierReponse1(event) {
 
     selectedChiffrements.forEach((chiffrement, index) => {
       const checkButton = document.getElementById(`check-answer-exo1-${index}`);
+      const showAnswerButton = document.getElementById(`show-answer-exo1-${index}`);
       const answerResult = document.getElementById(`answer-result-exo1-${index}`);
       const answerInput = document.getElementById(`answer-exo1-${index}`);
 
@@ -200,6 +203,12 @@ function verifierReponse1(event) {
           answerResult.classList.remove("text-success");
           answerResult.classList.add("text-danger");
         }
+      });
+
+      showAnswerButton.addEventListener('click', () => {
+        const answer = document.getElementById(`spoiled-answer-exo1-${index}`);
+        showAnswerButton.style.display = 'none';
+        answer.style.display = 'block';
       });
     });
   })
