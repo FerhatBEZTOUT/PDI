@@ -1,7 +1,8 @@
 $(document).ready(function () {
   // Start of script
 
-  /*--------------- QCM ---------------*/
+
+  // QCM
   fetch('./data/qcm.json')
   .then(response => response.json())
   .then(data => {
@@ -63,11 +64,255 @@ $(document).ready(function () {
   .catch(error => console.error(error));
 
 
-  /*---------------Exercice 1---------------*/ 
-  fetch('./data/exo1.json')
+  //Chiffrement de César
+  fetch('./data/exo3.json')
   .then(response => response.json())
   .then(data => {
     const chiffrementsContainer = document.getElementById('exo1-container');
+    const chiffrements = data.chiffrements;
+
+    // Mélanger les chiffrements dans un ordre aléatoire
+    const shuffledChiffrements = chiffrements.sort(() => Math.random() - 0.5);
+
+    // Sélectionner les 5 premiers chiffrements dans le tableau mélangé
+    const selectedChiffrements = shuffledChiffrements.slice(0, 5);
+
+    let html = '';
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      html += `
+        <div class="card mb-3">
+          <div class="card-body">
+
+            <h5 class="card-title"><b>${chiffrement.type}</b> en utilisant l'algorithme de César ce message : </h5>
+            <p class="card-text">${chiffrement.texte}</p>
+            <p class="card-text">Clé : ${chiffrement.cle}</p>
+            <div class="form-group">
+              <label for="answer-exo1-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo1-${index}">
+            </div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo1-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-exo1-${index}"></div>
+            <div class="mt-2" id="answer-exo1-${index}" style="display:none">${chiffrement.answer}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    chiffrementsContainer.innerHTML = html;
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      const checkButton = document.getElementById(`check-answer-exo3-${index}`);
+      const answerResult = document.getElementById(`answer-result-exo3-${index}`);
+      const answerInput = document.getElementById(`answer-exo3-${index}`);
+
+      checkButton.addEventListener('click', () => {
+        const selectedAnswer = answerInput.value.toUpperCase().replace(/[^A-Z]/g, "");
+        const correctAnswer = chiffrement.answer.toUpperCase().replace(/[^A-Z]/g, "");
+
+        if (selectedAnswer === correctAnswer) {
+          answerResult.innerHTML = "Bonne réponse !";
+          answerResult.classList.remove("text-danger");
+          answerResult.classList.add("text-success");
+        } else {
+          answerResult.innerHTML = "Mauvaise réponse. Réessayez.";
+          answerResult.classList.remove("text-success");
+          answerResult.classList.add("text-danger");
+        }
+      });
+    });
+  })
+  .catch(error => console.error(error));
+
+  // Chiffrement de Vigenere
+  fetch('./data/exo4.json')
+  .then(response => response.json())
+  .then(data => {
+    const chiffrementsContainer = document.getElementById('exo2-container');
+    const chiffrements = data.chiffrements;
+
+    // Mélanger les chiffrements dans un ordre aléatoire
+    const shuffledChiffrements = chiffrements.sort(() => Math.random() - 0.5);
+
+    // Sélectionner les 5 premiers chiffrements dans le tableau mélangé
+    const selectedChiffrements = shuffledChiffrements.slice(0, 5);
+
+    let html = '';
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      html += `
+        <div class="card mb-3">
+          <div class="card-body">
+
+            <h5 class="card-title"><b>${chiffrement.type}</b> en utilisant l'algorithme de Vigenere ce message : </h5>
+            <p class="card-text">${chiffrement.texte}</p>
+            <p class="card-text">Clé : ${chiffrement.cle}</p>
+            <div class="form-group">
+              <label for="answer-exo2-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo2-${index}">
+            </div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo2-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-exo2-${index}"></div>
+            <div class="mt-2" id="answer-exo2-${index}" style="display:none">${chiffrement.answer}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    chiffrementsContainer.innerHTML = html;
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      const checkButton = document.getElementById(`check-answer-exo4-${index}`);
+      const answerResult = document.getElementById(`answer-result-exo4-${index}`);
+      const answerInput = document.getElementById(`answer-exo4-${index}`);
+
+      checkButton.addEventListener('click', () => {
+        const selectedAnswer = answerInput.value.toUpperCase().replace(/[^A-Z]/g, "");
+        const correctAnswer = chiffrement.answer.toUpperCase().replace(/[^A-Z]/g, "");
+
+        if (selectedAnswer === correctAnswer) {
+          answerResult.innerHTML = "Bonne réponse !";
+          answerResult.classList.remove("text-danger");
+          answerResult.classList.add("text-success");
+        } else {
+          answerResult.innerHTML = "Mauvaise réponse. Réessayez.";
+          answerResult.classList.remove("text-success");
+          answerResult.classList.add("text-danger");
+        }
+      });
+    });
+  })
+  .catch(error => console.error(error));
+
+
+  // Chiffrement d'Affine
+  fetch('./data/exo5.json')
+  .then(response => response.json())
+  .then(data => {
+    const chiffrementsContainer = document.getElementById('exo3-container');
+    const chiffrements = data.chiffrements;
+
+    // Mélanger les chiffrements dans un ordre aléatoire
+    const shuffledChiffrements = chiffrements.sort(() => Math.random() - 0.5);
+
+    // Sélectionner les 5 premiers chiffrements dans le tableau mélangé
+    const selectedChiffrements = shuffledChiffrements.slice(0, 5);
+
+    let html = '';
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      html += `
+        <div class="card mb-3">
+          <div class="card-body">
+
+            <h5 class="card-title"><b>${chiffrement.type}</b> en utilisant l'algorithme d'Affine ce message : </h5>
+            <p class="card-text">${chiffrement.texte}</p>
+            <p class="card-text">Clé : ${chiffrement.cle}</p>
+            <div class="form-group">
+              <label for="answer-exo3-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo3-${index}">
+            </div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo3-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-exo3-${index}"></div>
+            <div class="mt-2" id="answer-exo3-${index}" style="display:none">${chiffrement.answer}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    chiffrementsContainer.innerHTML = html;
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      const checkButton = document.getElementById(`check-answer-exo4-${index}`);
+      const answerResult = document.getElementById(`answer-result-exo4-${index}`);
+      const answerInput = document.getElementById(`answer-exo4-${index}`);
+
+      checkButton.addEventListener('click', () => {
+        const selectedAnswer = answerInput.value.toUpperCase().replace(/[^A-Z]/g, "");
+        const correctAnswer = chiffrement.answer.toUpperCase().replace(/[^A-Z]/g, "");
+
+        if (selectedAnswer === correctAnswer) {
+          answerResult.innerHTML = "Bonne réponse !";
+          answerResult.classList.remove("text-danger");
+          answerResult.classList.add("text-success");
+        } else {
+          answerResult.innerHTML = "Mauvaise réponse. Réessayez.";
+          answerResult.classList.remove("text-success");
+          answerResult.classList.add("text-danger");
+        }
+      });
+    });
+  })
+  .catch(error => console.error(error));
+
+
+  //Chiffrement de Playfair
+  // Chiffrement d'Affine
+  fetch('./data/exo6.json')
+  .then(response => response.json())
+  .then(data => {
+    const chiffrementsContainer = document.getElementById('exo4-container');
+    const chiffrements = data.chiffrements;
+
+    // Mélanger les chiffrements dans un ordre aléatoire
+    const shuffledChiffrements = chiffrements.sort(() => Math.random() - 0.5);
+
+    // Sélectionner les 5 premiers chiffrements dans le tableau mélangé
+    const selectedChiffrements = shuffledChiffrements.slice(0, 5);
+
+    let html = '';
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      html += `
+        <div class="card mb-3">
+          <div class="card-body">
+
+            <h5 class="card-title"><b>${chiffrement.type}</b> en utilisant l'algorithme de Playfair ce message : </h5>
+            <p class="card-text">${chiffrement.texte}</p>
+            <p class="card-text">Clé : ${chiffrement.cle}</p>
+            <div class="form-group">
+              <label for="answer-exo4-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo4-${index}">
+            </div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo4-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-exo4-${index}"></div>
+            <div class="mt-2" id="answer-exo4-${index}" style="display:none">${chiffrement.answer}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    chiffrementsContainer.innerHTML = html;
+
+    selectedChiffrements.forEach((chiffrement, index) => {
+      const checkButton = document.getElementById(`check-answer-exo4-${index}`);
+      const answerResult = document.getElementById(`answer-result-exo4-${index}`);
+      const answerInput = document.getElementById(`answer-exo4-${index}`);
+
+      checkButton.addEventListener('click', () => {
+        const selectedAnswer = answerInput.value.toUpperCase().replace(/[^A-Z]/g, "");
+        const correctAnswer = chiffrement.answer.toUpperCase().replace(/[^A-Z]/g, "");
+
+        if (selectedAnswer === correctAnswer) {
+          answerResult.innerHTML = "Bonne réponse !";
+          answerResult.classList.remove("text-danger");
+          answerResult.classList.add("text-success");
+        } else {
+          answerResult.innerHTML = "Mauvaise réponse. Réessayez.";
+          answerResult.classList.remove("text-success");
+          answerResult.classList.add("text-danger");
+        }
+      });
+    });
+  })
+  .catch(error => console.error(error));
+
+
+  // TEST 1
+  fetch('./data/exo1.json')
+  .then(response => response.json())
+  .then(data => {
+    const chiffrementsContainer = document.getElementById('exo5-container');
     const chiffrements = data.chiffrements;
 
     // Mélanger les chiffrements dans un ordre aléatoire
@@ -92,13 +337,13 @@ $(document).ready(function () {
               <div class="card-body rounded">${chiffrement.texte_chiffre}</div>
             </div>
             <div class="form-group">
-              <label for="answer-exo1-${index}">Réponse:</label>
-              <input type="text" class="form-control" id="answer-exo1-${index}">
+              <label for="answer-exo5-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo5-${index}">
             </div>
-            <button class="btn btn-primary mt-3" id="check-answer-exo1-${index}">Vérifier la réponse</button>
-            <button class="btn btn-secondary mt-3" id="show-answer-exo1-${index}">Voir la réponse</button>
-            <div class="mt-2" id="answer-result-exo1-${index}"></div>
-            <div class="mt-2" id="spoiled-answer-exo1-${index}" style="display:none">${chiffrement.answer}</div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo5-${index}">Vérifier la réponse</button>
+            <button class="btn btn-secondary mt-3" id="show-answer-exo5-${index}">Voir la réponse</button>
+            <div class="mt-2" id="answer-result-exo5-${index}"></div>
+            <div class="mt-2" id="spoiled-answer-exo5-${index}" style="display:none">${chiffrement.answer}</div>
           </div>
         </div>
       `;
@@ -138,11 +383,11 @@ $(document).ready(function () {
 
  
   
-  /*--------------- Exercice 2 ---------------*/
+  // TEST 2
   fetch('./data/exo2.json')
   .then(response => response.json())
   .then(data => {
-    const chiffrementsContainer = document.getElementById('exo2-container');
+    const chiffrementsContainer = document.getElementById('exo6-container');
     const chiffrements = data.chiffrements;
 
     // Mélanger les chiffrements dans un ordre aléatoire
@@ -164,12 +409,12 @@ $(document).ready(function () {
             </div>
             <p class="card-text">Clé : <strong>${chiffrement.cle}</strong></p>
             <div class="form-group">
-              <label for="answer-exo2-${index}">Réponse:</label>
-              <input type="text" class="form-control" id="answer-exo2-${index}">
+              <label for="answer-exo6-${index}">Réponse:</label>
+              <input type="text" class="form-control" id="answer-exo6-${index}">
             </div>
-            <button class="btn btn-primary mt-3" id="check-answer-exo2-${index}">Vérifier la réponse</button>
-            <div class="mt-2" id="answer-result-exo2-${index}"></div>
-            <div class="mt-2" id="answer-exo2-${index}" style="display:none">${chiffrement.answer}</div>
+            <button class="btn btn-primary mt-3" id="check-answer-exo6-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-exo6-${index}"></div>
+            <div class="mt-2" id="answer-exo6-${index}" style="display:none">${chiffrement.answer}</div>
           </div>
         </div>
       `;
@@ -200,6 +445,8 @@ $(document).ready(function () {
   })
   .catch(error => console.error(error));
 
+
+ 
 
   // End of script
 });
