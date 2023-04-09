@@ -8,7 +8,7 @@ include_once __DIR__ . '/view/header.php';
 </div>
 <div class="container">
     <div class="row justify-content-evenly align-items-stretch my-3">
-        <div class="card col-12 col-md-4" style="width: 18rem;">
+        <div class="card col-12 col-md-4 mb-2" style="width: 18rem;">
             <img src="./IMG/chiffrement-logo.webp" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Chiffrement & Déchiffrement</h5>
@@ -18,7 +18,7 @@ include_once __DIR__ . '/view/header.php';
         </div>
 
 
-        <div class="card col-12 col-md-4" style="width: 18rem;">
+        <div class="card col-12 col-md-4 mb-2" style="width: 18rem;">
             <img src="./IMG/cryptanalyse.gif" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Décryptage</h5>
@@ -28,7 +28,7 @@ include_once __DIR__ . '/view/header.php';
         </div>
 
 
-        <div class="card col-12 col-md-4" style="width: 18rem;">
+        <div class="card col-12 col-md-4 mb-2" style="width: 18rem;">
             <img src="./IMG/cours.jpg" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Cours</h5>
@@ -39,7 +39,7 @@ include_once __DIR__ . '/view/header.php';
 
 
 
-        <div class="card col-12 col-md-4" style="width: 18rem;">
+        <div class="card col-12 col-md-4 mb-2" style="width: 18rem;">
             <img src="./IMG/exercice.png" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Exercices</h5>

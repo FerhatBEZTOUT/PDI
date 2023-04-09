@@ -255,6 +255,8 @@ $(document).ready(function (){
     //chiffrement_playfair
     function standard(entree) {
         entree = entree.toUpperCase();
+        entree = normaliserChaine(entree);
+        
         longueur = entree.length;
         entree_standard = '';
         for (i = 0; i < longueur; i++) {
@@ -263,12 +265,14 @@ $(document).ready(function (){
             }
         }
         entree = entree_standard;
+        $("#txt-playfaircles").val(entree);
         return entree;
     }
 
 
     function CreerGrille(clef) {
         clef = standard(clef);
+        
         var grille = '';
         for (var nbr = 0; nbr < clef.length; nbr++) {
             ch = clef.charAt(nbr);
@@ -325,7 +329,7 @@ $(document).ready(function (){
         for (nbr = 0; nbr < clair.length; nbr = nbr + 2) {
             ch1 = clair.charAt(nbr);
             ch2 = clair.charAt(nbr + 1);
-            if (ch1 == ch2) { ch2 = "X"; nbr = nbr - 1 };    // Žlimine les doublons
+            if (ch1 == ch2) { ch2 = "X"; nbr = nbr - 1 };    // Elimine les doublons
             ord1 = matrice.indexOf(ch1);
             ligne1 = Math.floor(ord1 / 5);
             col1 = ord1 % 5;
