@@ -282,12 +282,132 @@ include_once __DIR__ . '/view/header.php';
   <section id="chapitre3">
     <h2>Chapitre 3 : Le chiffrement par transposition</h2>
     <p>Le chiffrement par transposition est une autre technique de chiffrement qui consiste à permuter les lettres du message. Nous allons l'étudier en détail dans ce chapitre.</p>
+    <p> Un chiffre de transposition consiste à changer l'ordre des lettres, donc à construire des anagrammes. Cette méthode est connue depuis l'Antiquité, puisque les Spartes
+      utilisaient déja une scytale. Une analyse statistique sur les chiffrements par transposition n'est pas utile, puisque seul l'ordre des symboles est différent;
+      les symboles restent les mêmes. Donc, les symboles les plus fréquents dans le message clair resteront évidemment les plus fréquents dans le message chiffré. </p>
+    <h4> Transposition simple par colonnes </h4>
+    <p> Dans ce type de chiffrement, on dispose les lettres du message dans un tableau de <l>n </l> colonnes. </p>
+    <h4> Chiffrement </h4>
+    <p> Pour chiffrer un message, on va disposer les lettres du message horizontalement sur la matrice de longueur n,puis on collecte les lettres verticalement.
+      Pour un message de longueur m alors on aura deux cas de figure : </p>
+      <ul>
+        <li> m mod n = 0 ; dans ce cas, toutes les colonnes ont la même hauteur [m/n]. </li>
+        <li> m mod n = i ; tel que a> 0 : dans ce cas, la hauteur des i premières colonnes est [m/n] +1.
+          La hauteur des n - i colonnes restantes est [m/n]. </li>
+      </ul>
+    <h4> Déchiffrement </h4>
+    <p> Contrairement au chiffrement, on dispose les lettres du chiffre verticalement, puis on collecte les lettres horizontalement. La construction de la matrice se fait 
+      de la même manière </p>
+    
+    <h4> Transposition complexe par colonnes </h4>
+    <p> Une transposition complexe par colonnes s'effectue à partir d'une clé (mot ou expression) de longueur souhaitée.
+    On numérote ensuite les lettres dans l'ordre alphabétique. Si une même lettre appraît plusieurs fois, elle est numérotée successivement de la gauche
+    vers la droite. </p>
+    <h4> Chiffrement </h4>
+    <p> La clé du message donne à la fois le nombre de colonnes du tableau, et la l'ordre de la récolte des lettres.
+      De la même manière que la transposition simple, on dispose horizontalement les lettres du message sur la matrice de longuer équivalente à la longueur 
+      de la clé</br> </p>
+    <p> On collecte verticalement les lettres suivant l'ordre croissant des lettres de la clé par rapport à l'alphabet. </p>
+    <h4> Déchiffrement </h4>
+    <p> On effectue l'opération inverse pour déchiffrer le message : </p>
+    <ul>
+      <li> On dispose verticalement les lettres du message chiffré suivant l'ordre croissant des lettres du mot clé 
+        par rapport à l'alphabet. </li>
+      <li> Collecter horizontalement les lettres </li>
+    </ul>
+    <h4> Cryptanalyse du chiffrement par transposition </h4>
+    <p> A moins que l'on dispose de renseignements subsidaires, le décryptement d'une transposition à tableau est souvent un travail long,
+      comportant de nombreux tâtonnements. Le principe de base consiste à rechercher une juxtaposition verticale de deux portions du cryptogramme
+      permettant d'obtenir des bigrammes particulièrement vraisemblables. Par exemple (qu,es,et,etc.). </br>
+      La manière la plus commode de réaliser des juxtapositions paraît être de faire deux bandes de papier sur chacune desquelles on inscrira verticalement le texte complet du cryptogramme.
+      En les faisant coulisser l'une par rapport à l'autre, on pourra réaliser toutes les juxtapositions possibles. </p>
+</br>
+</br>
   </section>
 
  <!-- Chapitre 4 -->
   <section id="chapitre4">
-     <h2>Chapitre 4 : Les chiffrements modernes</h2>
-     <p>Les chiffrements modernes utilisent des algorithmes plus complexes pour garantir une sécurité maximale. Nous allons étudier les principaux d'entre eux dans ce chapitre.</p>
+     <h2>Algorithme de chiffrement à clé publique</h2>
+     <p>Les techniques de cryptographie classique ont apporté une grande contribution à la sécurité des messages transmis durant des siècles.
+      Néanmoins, elles ne sont plus d'actualité, dès l'apparition des premiers ordinateurs. En effet, d'un côté, ces techniques ne garantissent pas une sécurité
+      forte, car avec de simples algorithmes, un ordinateur peut les casser en une fraction de seconde.
+      D'un autre côté, ces techniques permettent seulement le chiffrement de données textuelles. </p>
+      <p> La cryptographie entre dans une nouvelle ère avec l'utilsiation intensive des ordinateurs, qui permettent d'exploiter des algorithmes bien plus complexe, 
+        mais en même temps, les attaques peuvent être automatisées. </p>
+      <p> Ce chapitre va présenter certaines techniques de cryptographie moderne, plus exactement les algorithmes de chiffrement à clé publique. </p>
+     </p>
+      <h4> Chiffrement symétrique </h4>
+      <p> Les chiffrements symétriques aussi appelées chiffrement à clé privé (secrète) sont les héritiers
+        des méthodes cryptographiques anciennes (commes les substitutions,les transpositions). Dans ce type de chiffrement,
+        l'expéditeur et le destinataire emploient une instance différente d'une même clé pour chiffrer et déchiffrer les messages. </br>
+        Le chiffrement symétrique s'appuie grandement sur le fait que les clés doivent être gardées secrètes. L'un des avantages du chiffrement symétrique
+        est la rapidité du chiffrement des messages par rapport au chiffrement asymétrique. Néanmoins, l'échange des clés secrètes, qui doit 
+        se faire par un canal sécurisé, est souvent le point faible de ces méthodes de chiffrement. Enfin le chiffrement symétrique
+        assure uniquement la confidentialité des données transmises ou stockées, elle ne peut pas être meployée pour confirmer leur intégrité ni leur authenticité. </p>
+      
+        <h4> Chiffrement asymétrique </h4>
+        <p> En novembre 1976,Diffie et Hellman publient l'article dans le quelle ils fournissent pour le problème d'échange de clés, cette solution
+          est le chiffrement à clé publique qui est également connue sous le terme de chiffrement asymétrique. Le chiffrement asymétrique utilise deux clés conjointement,
+          une combinaison d'une clé privée et d'une clé publique. Si un message est chiffré par la clé privée, alors eule la clé publique correspondant à cette clé privée peut déchiffrer le message.
+          Si un message est chiffré par la clé publique, alors seule la clé privée peut déchiffrer le message.
+          La clé privée doit rester connue uniquement par son propriétaire respectif, tandis que la clé publique est mise à disposition de tous sur une base de données
+          ou un annuaire publiquement accessible.
+          L'avantage du chiffrement asymétrique est qu'il peut assurer la confidentialité, l'authenticité et la non-répudiation des communications et du stockage de données électroniques.
+          Le principal inconvénient du chiffrement asymétrique est sa lenteur par rapport au chiffrement symétrique. En effet, le chiffrement asymétrique exisge une puissance
+          de calcul bien supérieure en raison de sa compléxité mathématique. Dans la suite de cette section,l'algorithme d'exponentiation modulaire
+          rapide sera présenté, cet algorithme sera utilisé dans les différents chiffrements qui seront présentés dans ce chapitre. </p>
+
+        <h4> Chiffrement à clé publique </h4>
+        <h4> Chiffrement de RSA </h4>
+        <p> Après que Whitfield Diffie et Martin Hellman ont introduit la cryptographie a clé publique en 1976, une nouvelle branche de la cryptographie
+          s'est soudainement ouverte. En 1977, Ronald Rivest, Adi Shamir et Leonard Adleman ont proposé le premier schéma cryptographique asymétrique intitulé RSA.
+          Ce dernier est parfois appelé algorithme Rivest -Shamir - Adleman, est le schéma cryptographique asymétrique le plus utilisé, même si les courbes elliptiques et les schémas 
+          logarithmiques discrets gagnent du terrain. </br>
+          Avec le chiffrement RSA, la clé publique comme la clé privée peuvent chiffrer un message. La clé opposée à celle utilisée pour chiffre un message sert à le déchiffrer.
+          Cet attribut constitue l'une des raisons pour lesquelles RSA est devenu l'algorithme asymétrique, le plus couramment utilisé, car il fournit une méthode 
+          permettant d'assurer la confidentialité, l'intégrité, l'authenticité et la non-répudiation des communications et du stockage de données électroniques.</br>
+          La sécurité de l'algorithme RSA provient du caractère complexe de la factorisation de grands entiers produits de deux grands nombres entiers.
+          Il est facile de multiplier ces nombres, mais la détermination des nombres entiers d'origine, <b>la factorisation </b>
+
+          <h4> Création des clés </h4>
+          <p> L'étape de création des clés est à la charge de l'entité (A) qui veut chiffrer ces messages avec une clé privée. Cette étape n'intervient pas à chaque
+            chiffrement, car les clés peuvent être réutilisées. Le renouvellement des clés n'intervient que si la clé privée est compromise, ou par 
+            précaution au bout d'un certain temps (qui peut se compter en années).
+            <ul>
+              <li> Choisir p et q, deux grands nombres premiers distincts ; </li>
+              <li> Calculer leur produit n = p * q, appelé module de chiffrement ; </li>
+              <li> Calculer Φ(n) = (p-1)(q-1) </li>
+              <li> Choisir un entier naturel e premier avec Φ(n) et strictement inférieur à Φ(n), appelé exposant de chiffrement ; </li>
+              <li> Calculer d,tel que ed mod Φ(n) = 1. Autrement dit, ed -1 est un multiple de Φ(n). On peut calculer d à partir de e et Φ(n), en utilisant l'algorithme d'Euclide </li>
+            </ul>
+          <h4> Chiffrement </h4>
+          <p> M est un entier naturel strictement inférieur à n représentant un message, alors le message chiffré sera représenté par : C = M^e mod n. </p>
+          <h4> Déchiffrement </h4>
+          <p> pour déchiffrer C, on utilise la clé privée (d,n) comme suit : M = C^d mod n. </p>
+
+        <h4> Chiffrement d'ElGamal </h4>
+        <p> Le chiffrement d'ElGamal est un protocole de cryptographie asymétrique inventé par Taher Elgamal en 1984, ce chiffrement est basé
+          sur le problème du logarithme discret. </p>
+        <h4> Génération de clés </h4>
+        <p> Choisir un grand nombre premier p et deux nombres a et g tel que : </p>
+        <ul>
+          <li> a < p ; </li>
+          <li> g < p ; </li>
+        </ul>
+        <p> Puis on calcule A = g^a mod p . La clé publique est (A,g,p) et la clé privée est a. </p>
+        <h4> Chiffrement </h4>
+        <p>Pour chiffrer un message M, on choisit un nombre aléatoire b, tel que b < a et le pgcd (b,p-1) = 1, puis on calcule : </p>
+        <ul>
+          <li> B = g^b mod p ; </li>
+          <li> C = M * A^b mod p.</li>
+        </ul>
+        <p> Le message chiffré est alors (B,C) </p>
+
+        <h4> Déchiffrement </h4>
+        <p> Pour déchiffrer un message avec l'algorithme d'ElGamal, on utilise la formule suivante : </p>
+        <ul>
+          <li> M = C * B^(p-a-1) mod p. </li>
+        </ul>   
   </section>
 </main>
 

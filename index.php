@@ -44,7 +44,7 @@ include_once __DIR__ . '/view/header.php';
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Exercices</h5>
                 <p class="card-text">Entraînez-vous à chiffrer, déchiffrer et décrypter des messages cryptés en résolvant nos exercices interactifs.</p>
-                <a href="./exercices.php" class="btn btn-primary align-self-end">S'exercer</a>
+                <a href="./exercices2.php" class="btn btn-primary align-self-end">S'exercer</a>
             </div>
         </div>
     </div>
