@@ -55,7 +55,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link menuNav" href="exercices.php">Exercices</a>
+                        <a class="nav-link menuNav" href="exercices2.php">Exercices</a>
 
                     </li>
 

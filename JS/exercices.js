@@ -10,8 +10,8 @@ $(document).ready(function () {
     // Mélanger les questions dans un ordre aléatoire
     const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
 
-    // Sélectionner les 5 premières questions dans le tableau mélangé
-    const selectedQuestions = shuffledQuestions.slice(0, 5);
+    // Sélectionner les 8 premières questions dans le tableau mélangé
+    const selectedQuestions = shuffledQuestions.slice(0, 8);
 
     let html = '';
 
