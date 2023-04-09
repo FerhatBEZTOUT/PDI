@@ -1,87 +1,6 @@
 $(document).ready(function () {
   // Start of script
 
-
-
-  function checkAnswers() {
-    var q1 = document.forms["quiz"]["q1"].value;
-    var result = document.getElementById("result");
-    if (e1 == "c") {
-      result.innerHTML = "Bonne réponse !";
-      result.style.color = "green";
-    } else {
-      result.innerHTML = "Mauvaise réponse, réessayez.";
-      result.style.color = "red";
-    }
-  }
-
-
-// Fonction pour vérifier la réponse de l'exercice 1
-function verifierReponse1(event) {
-    event.preventDefault();
-    var reponse = document.getElementById("reponse1").value.toUpperCase();
-    if (reponse === "FHF HVW XQ PHVVDJH À ELIIHU") {
-      alert("Bonne réponse !");
-    } else {
-      alert("Mauvaise réponse. Réessayez !");
-    }
-  }
-  
-  // Fonction pour afficher l'indice de l'exercice 1
-  function afficherIndice1() {
-    var indice = document.getElementById("indice1");
-    if (indice.style.display === "none") {
-      indice.style.display = "block";
-    } else {
-      indice.style.display = "none";
-    }
-  }
-
-  
-  // Fonction pour vérifier la réponse de l'exercice 2
-  function verifierReponse2(event) {
-    event.preventDefault();
-    var reponse = document.getElementById("reponse2").value.toUpperCase();
-    if (reponse === "CETTE PHRASE EST CHIFFREE AVEC CESAR") {
-      alert("Bonne réponse !");
-    } else {
-      alert("Mauvaise réponse. Réessayez !");
-    }
-  }
-  
-  
-  // Fonction pour afficher l'indice de l'exercice 2
-  function afficherIndice2() {
-    var indice = document.getElementById("indice2");
-    if (indice.style.display === "none") {
-      indice.style.display = "block";
-    } else {
-      indice.style.display = "none";
-    }
-  }
-  
-  // Fonction pour vérifier la réponse de l'exercice 3
-  function verifierReponse3(event) {
-    event.preventDefault();
-    var reponse = document.getElementById("reponse3").value.toUpperCase();
-    if (reponse === "WELCOME TO CRYPTOGRAPHY") {
-      alert("Bonne réponse !");
-    } else {
-      alert("Mauvaise réponse. Réessayez !");
-    }
-  }
-  
-  // Fonction pour afficher l'indice de l'exercice 3
-  function afficherIndice3() {
-    var indice = document.getElementById("indice3");
-    if (indice.style.display === "none") {
-      indice.style.display = "block";
-    } else {
-      indice.style.display = "none";
-    }
-  }
-
-
   fetch('./data/qcm.json')
   .then(response => response.json())
   .then(data => {
@@ -163,9 +82,9 @@ function verifierReponse1(event) {
       html += `
         <div class="card mb-3">
           <div class="card-body">
-            <h5 class="card-title">Trouvez la clé de ce message chiffré avec ${chiffrement.type}!</h5>
-            <p class="card-text"><strong>Texte en clair:</strong> ${chiffrement.texte_clair}</p>
-            <p class="card-text"><strong>Texte chiffré:</strong> ${chiffrement.texte_chiffre}</p>
+            <h5 class="card-title">Trouvez la clé de ce message chiffré avec <b>${chiffrement.type}</b>!</h5>
+            <p class="card-text text-center"><strong>Texte en clair</strong> ${chiffrement.texte_clair}</p>
+            <p class="card-text text-center"><strong>Texte chiffré:</strong> ${chiffrement.texte_chiffre}</p>
             <div class="form-group">
               <label for="answer-exo1-${index}">Réponse:</label>
               <input type="text" class="form-control" id="answer-exo1-${index}">
@@ -210,10 +129,7 @@ function verifierReponse1(event) {
     });
   })
   .catch(error => console.error(error));
-
-  // Test 
+ 
   
-
-
   // End of script
 });
