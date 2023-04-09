@@ -157,8 +157,11 @@ $(document).ready(function () {
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Déchiffrez ce message !</h5>
-            <p class="card-text">${chiffrement.texte_clair}</p>
-            <p class="card-text">Clé : ${chiffrement.cle}</p>
+            <h6 class="card-text text-center"><strong>Texte en clair</strong></h6>
+            <div class="card bg-warning bg-opacity-50 mb-3">
+              <div class="card-body rounded">${chiffrement.texte_clair}</div>
+            </div>
+            <p class="card-text">Clé : <strong>${chiffrement.cle}</strong></p>
             <div class="form-group">
               <label for="answer-exo2-${index}">Réponse:</label>
               <input type="text" class="form-control" id="answer-exo2-${index}">
