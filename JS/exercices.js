@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // Start of script
 
+  /*--------------- QCM ---------------*/
   fetch('./data/qcm.json')
   .then(response => response.json())
   .then(data => {
@@ -62,7 +63,7 @@ $(document).ready(function () {
   .catch(error => console.error(error));
 
 
-
+  /*---------------Exercice 1---------------*/ 
   fetch('./data/exo1.json')
   .then(response => response.json())
   .then(data => {
@@ -137,7 +138,7 @@ $(document).ready(function () {
 
  
   
-
+  /*--------------- Exercice 2 ---------------*/
   fetch('./data/exo2.json')
   .then(response => response.json())
   .then(data => {
@@ -198,7 +199,6 @@ $(document).ready(function () {
     });
   })
   .catch(error => console.error(error));
-
 
 
   // End of script
