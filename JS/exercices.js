@@ -100,20 +100,21 @@ function verifierReponse1(event) {
     let html = '';
 
     selectedQuestions.forEach((question, index) => {
-      html += `<div class="border border-dark border-2 my-3 p-2 rounded-1 shadow bg-body-tertiary">`
-      html += `<div class="question">${question.question}</div>`;
-      question.options.forEach((option, optionIndex) => {
-        html += `
-          <div>
-            <input class="" type="radio" id="question-${index}-option-${optionIndex}" name="question-${index}" value="${optionIndex}">
-            <label for="question-${index}-option-${optionIndex}">${option}</label>
-          </div>
-        `;
-      });
-
       html += `
-        <button class="btn btn-primary" id="check-answer-${index}">Vérifier la réponse</button>
-        <div  id="answer-result-${index}"></div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">${question.question}</h5>
+            <form>
+              ${question.options.map((option, optionIndex) => `
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="question-${index}-option-${optionIndex}" name="question-${index}" value="${optionIndex}">
+                  <label class="form-check-label" for="question-${index}-option-${optionIndex}">${option}</label>
+                </div>
+              `).join('')}
+            </form>
+            <button class="btn btn-primary mt-3" id="check-answer-${index}">Vérifier la réponse</button>
+            <div class="mt-2" id="answer-result-${index}"></div>
+          </div>
         </div>
       `;
     });
@@ -130,9 +131,14 @@ function verifierReponse1(event) {
 
         if (selectedOptionIndex == correctOptionIndex) {
           answerResult.innerHTML = "Bonne réponse !";
+          answerResult.classList.remove("text-danger");
+          answerResult.classList.add("text-success");
+          
           
         } else {
           answerResult.innerHTML = "Mauvaise réponse. Réessayez.";
+          answerResult.classList.remove("text-success");
+          answerResult.classList.add("text-danger");
         }
       });
     });
