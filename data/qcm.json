@@ -3,17 +3,17 @@
         {
             "question": "Qu'est-ce que la cryptographie ?",
             "options": [
+                "La science de la communication sécurisée",
                 "L'étude des plantes",
-                "L'art de la sculpture",
-                "La science de la communication sécurisée"
+                "L'art de la sculpture"
             ],
             "answer": 0
         },
         {
             "question": "Quel est le principe de base de la cryptographie symétrique ?",
             "options": [
-                "L'utilisation de deux clés différentes pour chiffrer et déchiffrer des messages",
                 "L'utilisation d'une clé unique pour chiffrer et déchiffrer des messages",
+                "L'utilisation de deux clés différentes pour chiffrer et déchiffrer des messages",
                 "L'utilisation d'un algorithme complexe pour chiffrer des messages"
             ],
             "answer": 0
@@ -21,17 +21,17 @@
         {
             "question": "Qu'est-ce qu'une attaque par force brute ?",
             "options": [
+                "Une méthode d'attaque qui consiste à essayer toutes les clés possibles jusqu'à trouver la bonne",
                 "Une méthode d'attaque qui consiste à infecter un système avec un virus",
-                "Une méthode d'attaque qui consiste à espionner les communications",
-                "Une méthode d'attaque qui consiste à essayer toutes les clés possibles jusqu'à trouver la bonne"
+                "Une méthode d'attaque qui consiste à espionner les communications"
             ],
             "answer": 0
         },
         {
             "question": "Qu'est-ce que la cryptographie asymétrique ?",
             "options": [
-                "L'utilisation d'une clé unique pour chiffrer et déchiffrer des messages",
                 "L'utilisation de deux clés différentes pour chiffrer et déchiffrer des messages",
+                "L'utilisation d'une clé unique pour chiffrer et déchiffrer des messages",
                 "L'utilisation d'un algorithme complexe pour chiffrer des messages"
             ],
             "answer": 0
@@ -46,10 +46,21 @@
             "answer": 0
         },
         {
+            "question": "Quel est le chiffrement le plus utilisé aujourd'hui ?",
+            "options": [
+                "AES",
+                "DES",
+                "RSA",
+                "Blowfish",
+                "Triple DES"
+            ],
+            "answer": 0
+        },
+        {
             "question": "Quel est l'avantage de la cryptographie asymétrique par rapport à la cryptographie symétrique ?",
             "options": [
-                "Elle est plus rapide",
                 "Elle permet l'échange de clés de manière sécurisée",
+                "Elle est plus rapide",
                 "Elle est plus simple à implémenter"
             ],
             "answer": 0

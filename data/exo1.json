@@ -1,0 +1,35 @@
+{
+    "chiffrements": [
+      {
+        "type": "césar",
+        "texte_clair": "BONJOURJESUISFERHAT",
+        "texte_chiffre": "ERQMRXUMHVXLVIHUKDW",
+        "answer": "C"
+      },
+      {
+        "type": "vigenere",
+        "texte_clair": "AULIEUDESEDIRIGERVERSLESBATIMENTSILSERISQUAENFINAGRAVIRLETERRILSURLEQUELBRULAIENTLESTROISFEUXDEHOUILLEDANSDESCORBEILLESDEFONTEPOURECLAIRERETRECHAUFFERLABESOGNELESOUVRIERSDELACOUPEATERREAVAIENTDUTRAVAILLERTARDONSORTAITENCORELESDEBRISINUTILES",
+        "texte_chiffre": "BFLVGVOEFGETRVIFCVRTTWEFDBEIZGOESVNTPRVURFARPGTNNISLVVTMPTRTSTLFWSWEDWFWBEWMLIRPUWEFVSZIFHFFXQGIZUVNMPDNPTOEFEPCBRKMWEFFFQOAVFAOHTFNLNKSPRRVSPCUCVQFRTMLBRUPRNRNFDOHXSTEEUEPLNEPFPRCUPREGBGAVGOEDHVSLVNKMWEEVBCDBPTZRGCJEEAEPCEYGTOEOTJDIAWUTLRU",
+        "answer": "BLANC"
+      },
+      {
+        "type": "affine",
+        "texte_clair": "LE CRYPTOGRAPHE JEAN HENRIKELLERMAN AVEC LE CODE MILITAIREDE FRANCOIS ANTOINE BOSSUT",
+        "texte_chiffre": "AD OMYPUMAWIVIYV NUUL QAKG GYV IAUO AWHZYMUFUGIQYG TUQCYMAGIGIQYL HUXMNYQUULG AYVOZYCYY",
+        "answer": "C"
+      },
+      {
+        "type": "transposition",
+        "texte_clair": "L'ennemi attaque demain",
+        "texte_chiffre": "mineneL 'qkatta  eaidma",
+        "answer": "B"
+      },
+      {
+        "type": "substitution",
+        "texte_clair": "Il était une fois un petit navire",
+        "texte_chiffre": "At pèsyt hgy heyc yn nyxog hawnid",
+        "answer": "D"
+      }
+    ]
+  }
+  
