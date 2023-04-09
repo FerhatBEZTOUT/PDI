@@ -141,7 +141,7 @@ $(document).ready(function (){
 
 
         block_cle = '<tr>';
-        block_cle += '<td align="CENTER"><h5>Entrez la clé K <a target="_blank" class="question-cle" href="#">Plus d\'infos</a></h5><textarea name="playfair" id="txt-playfaircles" rows="1" cols="60" wrap="virtual"></textarea></td>';
+        block_cle += '<td align="CENTER"><h5>Entrez la clé K <a target="_blank" class="question-cle" href="./cours#chiffrement_playfair">Plus d\'infos</a></h5><textarea name="playfair" id="txt-playfaircles" rows="1" cols="60" wrap="virtual"></textarea></td>';
         block_cle += '</tr>';
         block_cle += '<tr>';
         block_cle += '<td align="CENTER" ><h5>Grille</h5>';

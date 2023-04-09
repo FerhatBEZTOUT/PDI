@@ -7,11 +7,7 @@ include_once __DIR__ . '/view/header.php';
         <select class="form-control mb-2" name="" id="chiffrement">
             <option value="0" selected>Séléctionner un chiffrement</option>
             <option value="cesar">César</option>
-            <option value="scytale">Scytale</option>
-            <option value="vigenere">Vigénere</option>
-            <option value="affine">Affine</option>
-            <option value="playfair">Playfair</option>
-            <option value="hill">Hill</option>
+            <option value="vigenere">Vigénere</option> 
         </select>
     </div>
     <div></div>

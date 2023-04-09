@@ -11,7 +11,6 @@ include_once __DIR__ . '/view/header.php';
       <option value="vigenere">Vigénere</option>
       <option value="affine">Affine</option>
       <option value="playfair">Playfair</option>
-      <option value="hill">Hill</option>
     </select>
   </div>
   <div></div>

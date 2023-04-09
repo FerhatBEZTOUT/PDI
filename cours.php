@@ -207,7 +207,7 @@ include_once __DIR__ . '/view/header.php';
         L'opération qui permet de la déterminer porte le nom du test de Kasiski, du nom de son inventeur. Il s'appuie sur les répétitions du texte chiffré. </p>
       <img class="image-carre" src="https://fr.scoutwiki.org/images/0/07/Vigenere.gif" width = 30% height= 30%>
 </br>
-      <h3> Chiffrement de Playfair </h3>
+      <h3 id="chiffrement_playfair"> Chiffrement de Playfair </h3>
       <p> Le chiffrement de Playfaire est un chiffrement polugraùùoqie, il a été popularisé par <b> Lyon Playfair </b> mais il a été inventé par <b> Sir Charles Wheatstone </b> (1854)
       un des pionniers du télégraphe électrique. Dans le chiffrement de Playfair, on dispose les 25 lettres de l'alphabet (W exclu, car inutile, on utilise V à la place) dans une grille de 5x5.
       La variante anglaise consiste à garder le W et à fusionner I et J.</br>

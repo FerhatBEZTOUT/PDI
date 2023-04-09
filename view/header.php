@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="IMG/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="CSS/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <title>Chiffrer</title>
+    <title>Enigma</title>
 
 </head>
 
@@ -55,7 +55,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link menuNav" href="exercices2.php">Exercices</a>
+                        <a class="nav-link menuNav" href="exercices.php">Exercices</a>
 
                     </li>
 

@@ -2,57 +2,116 @@
 include_once __DIR__ . '/view/header.php';
 ?>
 
-<main>
-  <h1>Exercice sur le chiffrement de césar : </h1>
-  <section>
-    <h2> Exercice 1 </h2>
-    <form id="quiz" name="quiz">
-      <p>Quel est le principe du chiffrement de César ?</p>
-      <label><input type="radio" name="e1" value="a"> Additionner une clé secrète à chaque lettre du message</label><br>
-      <label><input type="radio" name="e1" value="b"> Remplacer chaque lettre du message par la lettre suivante dans l'alphabet</label><br>
-      <label><input type="radio" name="e1" value="c"> Remplacer chaque lettre du message par la lettre située trois places plus loin dans l'alphabet</label><br>
-      <label><input type="radio" name="e1" value="d"> Additionner une clé publique à chaque lettre du message</label><br>
-      <button type="button" onclick="verif()">Valider</button>
-      <p id="result"></p>
-    </form>
-    <section>
-      <h2>Exercice 2</h2>
-      <p>Chiffrez le message suivant en utilisant le chiffrement de César avec un décalage de 3 :</p>
-      <p>CECI EST UN MESSAGE À CHIFFRER</p>
-      <form onsubmit="verifierReponse1(event)">
-        <label for="reponse1">Réponse :</label>
-        <input type="text" id="reponse1" name="reponse1">
-        <button type="submit">Soumettre</button>
-        <button type="button" onclick="afficherIndice1()">Indice</button>
-        <p id="indice1" style="display: none;">Le chiffrement de César utilise un décalage fixe pour chiffrer les lettres d'un message.</p>
-      </form>
-    </section>
-    <section>
-      <h2>Exercice 2</h2>
-      <p>Le message suivant a été chiffré avec le chiffrement de César avec un décalage de 5. Déchiffrez-le :</p>
-      <p>HNQF XYJQFYJW HTRUZYJWJW XTZSIJW RFX ZSYJ GJQQJW. </p>
-      <form onsubmit="verifierReponse2(event)">
-        <label for="reponse2">Réponse :</label>
-        <input type="text" id="reponse2" name="reponse2">
-        <button type="submit">Soumettre</button>
-        <button type="button" onclick="afficherIndice2()">Indice</button>
-        <p id="indice2" style="display: none;">Pour déchiffrer un message chiffré avec le chiffrement de César, il suffit de décaler les lettres dans l'autre sens.</p>
-      </form>
-    </section>
-    <section>
-      <h2>Exercice 3</h2>
-      <p>Le message suivant a été chiffré avec le chiffrement de César avec un décalage inconnu. Déchiffrez-le :</p>
-      <p>ZHOFRPH WR JUDYLWB IDOOV.</p>
-      <form onsubmit="verifierReponse3(event)">
-        <label for="reponse3">Réponse :</label>
-        <input type="text" id="reponse3" name="reponse3">
-        <button type="submit">Soumettre</button>
-        <button type="button" onclick="afficherIndice3()">Indice</button>
-        <p id="indice3" style="display: none;">Pour déchiffrer un message chiffré avec le chiffrement de César avec un décalage inconnu, il faut utiliser une technique de recherche par force brute pour tester tous les décalages possibles.</p>
-      </form>
+
+<nav class="chapter-nav">
+  <ul>
+    <li><a href="#titre-qcm-container">QCM</a></li>
+    <li><a href="#titre-cesar-container">Chiffrement de César</a></li>
+    <li><a href="#titre-vigenere-container">Chiffrement de Vigénere</a></li>
+    <li><a href="#titre-affine-container">Chiffrement d'Affine</a></li>
+    <li><a href="#titre-playfair-container">Chiffrement de Playfair</a></li>
+    <li><a href="#titre-test1-container">Test 1</a></li>
+    <li><a href="#titre-test2-container">Test 2</a></li>
+    <li><a href="#titre-test3-container">Test 3</a></li>
+  </ul>
+</nav>
+
+<div class="container my-5">
+  
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-qcm-container" class="text-center text-light">QCM</h2>
+          <div id="qcm-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-cesar-container" class="text-center text-light">Chiffrement de César</h2>
+          <div id="cesar-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-vigenere-container" class="text-center text-light">Chiffrement de Vigenere</h2>
+          <div id="vigenere-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-affine-container" class="text-center text-light">Chiffrement d'Affine</h2>
+          <div id="affine-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-playfair-container" class="text-center text-light">Chiffrement de Playfair</h2>
+          <div id="playfair-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-</main>
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-test1-container" class="text-center text-light">Test 1</h2>
+          <div id="test1-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-test2-container" class="text-center text-light">Test 2</h2>
+          <div id="test2-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body bg-dark rounded">
+            <h2 id="titre-test3-container" class="text-center text-light">Test 3</h2>
+          <div id="test3-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+</div>
+
+
 <script src="./JS/exercices.js"></script>
 
 <?php
